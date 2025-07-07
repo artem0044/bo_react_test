@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import "moment/locale/ru";
 import {convertToUserTimezone, getUserTimezone} from "@helpers/timezone";
 
-const openOrders = () => {
+const OpenOrders = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const { __ } = useTranslation();
@@ -167,4 +167,4 @@ const openOrders = () => {
   );
 };
 
-export default openOrders;
+export default OpenOrders;

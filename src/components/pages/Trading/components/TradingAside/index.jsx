@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PostBid } from "@actions/bids";
 import { BIDS } from "../../../../../constants";
 
-const tradingAside = () => {
+const TradingAside = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -113,4 +113,4 @@ const tradingAside = () => {
   );
 };
 
-export default tradingAside;
+export default TradingAside;

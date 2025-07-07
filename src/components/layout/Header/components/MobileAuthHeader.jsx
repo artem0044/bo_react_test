@@ -7,6 +7,8 @@ import { BurgerIcon, Button } from "@components/library";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "@helpers/translate";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import {
   AUTH,
   TRADING_HISTORY,
@@ -18,6 +20,7 @@ import {
 
 const MobileAuthHeader = ({ setSidebar, setShowPairs, showPair }) => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const { __ } = useTranslation();
   const {
     auth: { isDemoUser },
