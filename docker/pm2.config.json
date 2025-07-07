@@ -1,0 +1,10 @@
+{
+    "apps" : [
+        {
+            "name": "bo_react_client",
+            "script": "npx",
+            "interpreter":"none",
+            "args": "serve -l 3000 -s build"
+        }
+    ]
+}

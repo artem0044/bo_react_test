@@ -1,0 +1,94 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+.g-settings
+
+	&__lang
+		margin-bottom: rems(24)
+
+	&__notification
+
+	&__label
+		font-weight: 600
+		@include fontSize(18,24)
+		color: $white
+		margin-bottom: rems(10)
+
+		@include media-breakpoint-up(md)
+			@include fontSize(20,32)
+
+	&__btn
+		margin-top: rems(24)
+
+.change-lang
+
+	&__btns
+		display: flex
+
+	&__btn
+		& + &
+			margin-left: rems(10)
+
+.notification
+
+	&__list
+
+	&__item
+		& + &
+			margin-top: rems(15)
+
+.notification-card
+	
+	&.MuiFormControlLabel-root
+		width: 100%
+		padding: rems(15)
+		background: $dark-grey2
+		border-radius: 4px
+		justify-content: space-between
+		flex-direction: row-reverse
+		margin-right: 0
+		margin-left: 0
+
+
+	.MuiTypography-root
+		font-weight: 500
+		@include fontSize(16,24)
+		color: $white
+		letter-spacing: -0.011em
+		font-family: $font-base
+
+	.MuiSwitch-root
+		border-radius: 45px
+		opacity: 1!important
+		padding: 0
+		height: auto
+		width: auto
+
+	.MuiSwitch-track
+		background-color: #3A3A3A
+		height: rems(26)
+		width: rems(51)
+
+	.MuiSwitch-thumb
+		background-color: $white
+
+	.MuiButtonBase-root
+		padding: rems(3)
+
+	& .Mui-checked,
+	& .Mui-checked:hover
+
+		& + .MuiSwitch-track
+			background-color: $orange!important
+			opacity: 1!important
+
+		.MuiSwitch-thumb
+			background-color: $grey-form
+
+		&.MuiButtonBase-root
+			transform: translateX(25px)
+
+
+.profile
+	&__btn

@@ -1,0 +1,187 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.profile
+	border-radius: 8px
+
+	@include media-breakpoint-up(md)
+		background: $grey-form
+		padding: rems(30)
+
+	&__title
+		font-weight: 600
+		color: $white
+		margin-bottom: rems(24)
+		@include fontSize(26,32)
+
+		@include media-breakpoint-up(md)
+			@include fontSize(32,44)
+
+	&__inp-wrap
+
+	&__btn
+		margin-top: rems(24)
+		width: 100%
+
+		@include media-breakpoint-up(md)
+			width: auto
+
+	&__help
+		height: 16px
+		width: 16px
+		cursor: pointer
+
+.bo-select
+	.MuiSelect-select,
+	.MuiAutocomplete-inputRoot
+		padding: rems(13.5) rems(16)
+		border-radius: 4px
+		background-color: $dark-grey2!important
+		color: $white
+		font-weight: 500
+		@include fontSize(16,29)
+	
+		&.MuiInput-focused,
+		&:focus
+			outline: none
+			
+		fieldset.MuiOutlinedInput-notchedOutline
+			outline: none
+			border-color: transparent
+
+	.MuiList-root
+		max-height: rems(397)
+
+	.MuiSvgIcon-root
+		top: 16px
+		font-size: 24px
+		transform-origin: center
+		color: $grey
+
+.bo-select-content
+
+	& .MuiPaper-root
+		max-height: rems(397)
+		margin-top: rems(10)
+		background-color: $dark-grey2
+
+		&::-webkit-scrollbar
+			width: rems(7)
+
+		&::-webkit-scrollbar-thumb
+			background-color: #A9A9A9
+			height: rems(91)
+			border-radius: 20px
+
+		&::-webkit-scrollbar-track
+			background-color: transparent
+
+	& .MuiButtonBase-root
+		padding: rems(14) rems(16)
+		color: $white
+		font-weight: 500
+		@include fontSize(16,29)
+		&:hover
+			background-color: #444444
+
+		&.Mui-selected
+			background-color: #444444
+
+
+.Mui-focused
+	&::after
+		display: none!important
+
+
+.verification
+	border-radius: 4px
+	padding: rems(11) rems(16)
+	background-color: $dark-grey2
+
+//mini
+
+.bo-select-mini
+	&.MuiInputBase-root
+		background-color: $dark-grey2
+		height: 42px!important
+		border-radius: 4px
+
+		&:before
+			display: none
+
+		&.open
+			border-radius: 4px 4px 0 0
+			background-color: $grey
+
+			.MuiSelect-select
+				background-color: $grey
+
+			.MuiSelect-icon path
+				fill: $white
+
+	& .MuiSelect-select
+		padding: rems(10) rems(50) rems(10) rems(24) !important
+		border-radius: 4px
+		background-color: $dark-grey2
+		color: $white
+		font-weight: 500
+		@include fontSize(12,22)
+
+		&:focus
+			outline: none
+
+	& .MuiSelect-icon
+		right: rems(24)
+
+.bo-select-mini-content
+	.MuiPaper-root
+		background: $dark-grey2
+		box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25)
+		border-radius: 0 0 4px 4px
+
+	.MuiList-root
+		padding: 0
+
+	.MuiButtonBase-root
+		padding: rems(8) rems(24)
+		color: $white
+		@include fontSize(12,22)
+
+	& .Mui-selected
+		background-color: transparent!important
+
+
+//micro
+.bo-select-micro
+	&.MuiInputBase-root
+		background-color: $dark-grey2
+		height: 42px!important
+		border-radius: 4px
+
+		&:before
+			display: none
+
+		&.open
+			border-radius: 4px 4px 0 0
+			background-color: $grey
+
+			.MuiSelect-select
+				background-color: $grey
+
+			.MuiSelect-icon path
+				fill: $white
+
+		& .MuiSelect-select
+			padding: rems(8) rems(36) rems(9) rems(10) !important
+			border-radius: 4px
+			background-color: $dark-grey2
+			color: $white
+			font-weight: 500
+			@include fontSize(14,25)
+
+			&:focus
+				outline: none
+
+		& .MuiSelect-icon
+			right: rems(24)

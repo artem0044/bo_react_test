@@ -1,0 +1,67 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+.bid-notification-wrap
+	position: absolute
+	top: 24px
+	right: 24px
+	overflow-y: auto
+	height: 75%
+	border-radius: 8px
+
+	&::-webkit-scrollbar
+		width: 0
+		height: 0
+
+	&::-webkit-scrollbar-thumb
+		height: 0
+		width: 0
+
+	&::-webkit-scrollbar-track
+		background-color: transparent
+
+
+	.snackbar
+		position: relative
+		left: unset
+		right: unset
+		top: unset
+
+	.snackbar + .snackbar
+			margin-top: rems(8)
+
+.bid-notification
+	padding: rems(16)
+	background-color: $dark-grey3
+	border-left: 4px solid $placeholder
+	border-radius: 8px
+	z-index: 2
+
+	&__title
+		display: flex
+		align-items: center
+		@include fontSize(18,20)
+		margin-bottom: rems(8)
+
+		svg
+			margin-left: rems(7)
+
+	&__pair
+		@include fontSize(20,24)
+		font-weight: bold
+		display: flex
+		align-items: center
+		margin-bottom: rems(4)
+
+		svg
+			margin-left: rems(8)
+
+	&__b-title
+		color: $grey
+		@include fontSize(16,18)
+		margin-bottom: rems(4)
+
+	&__b-text
+		font-weight: 700
+		@include fontSize(16,18)

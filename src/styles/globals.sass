@@ -1,0 +1,167 @@
+@import 'variables'
+@import 'mixins'
+@import 'functions'
+
+*
+    box-sizing: border-box
+
+html, body
+    height: 100%
+    width: 100%
+    font:
+        family: $font-base
+        weight: 400
+        size: #{$font-size}px
+    color: $white
+    line-height: 1
+
+body
+    position: relative
+    background-color: $bg-base
+
+    &.dark-bg
+        background-color: #1C1C21
+
+    &.white-bg
+        background-color: $white
+    
+h1, h2, h3, h4, h5, h6
+    margin: 0
+    font:
+        family: $font-title
+        weight: 400
+
+p
+    line-height: 1.35
+    margin: 0
+
+ul
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+img
+    max-width: 100%
+    height: auto
+    object-fit: cover
+
+a
+    color: $black
+    transition: all 0.3s ease
+    text-decoration: none
+
+input
+    background-color: transparent
+    border: none
+
+button
+    border: none
+    background-color: transparent
+    padding: 0
+    cursor: pointer
+
+@import "components/btns"
+@import "components/tabs"
+@import "components/calendar"
+@import "components/radio-btn"
+@import "components/accordion"
+@import "components/pagination"
+
+// replace
+.bo-checkbox
+    height: 0
+    width: 0
+    position: absolute
+    opacity: 0
+
+    &+label
+        display: inline-flex
+        align-items: flex-start
+        user-select: none
+
+    &+label::before
+        content: ''
+        display: inline-block
+        width: 20px
+        height: 20px
+        border-radius: 3px
+        flex-shrink: 0
+        background-color: transparent
+        border: 1px solid #D8D9DF
+
+    &:checked+label::before,
+    &.checked+label::before
+        background-image: url("../assets/images/icons/checkOn.svg")
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: 12px 12px
+        border: 1px solid #2F2F2F
+    &-label
+        font-weight: 400
+        color: $white
+        @include fontSize(14,25)
+        cursor: pointer
+
+        a
+            color: $orange
+
+        &:before
+            margin-right: rems(18)
+
+.bo-checkbox2
+    height: 0
+    width: 0
+    position: absolute
+    opacity: 0
+
+    &+label
+        display: inline-flex
+        align-items: flex-start
+        user-select: none
+
+    &+label::before
+        content: ''
+        display: inline-block
+        width: 16px
+        height: 16px
+        border-radius: 4px
+        flex-shrink: 0
+        background-color: transparent
+        border: 1px solid $line-second
+
+    &:checked+label::before,
+    &.checked+label::before
+        background-image: url("../assets/images/icons/checkOn.svg")
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: 10px 10px
+
+    &-label
+        font-weight: 500
+        color: $text-second
+        @include fontSize(12,21)
+        cursor: pointer
+
+        a
+            color: $orange
+
+        &:before
+            margin-right: rems(10)
+            margin-top: -1px
+            
+.tipog
+    @include fontSize(20,30)
+    color: $orange
+
+.select
+    background-color: $red
+    min-width: 200px
+
+    .MuiSelect-select
+        padding: 0
+
+.bo-skeleton
+    &.MuiSkeleton-root
+        background-color: $placeholder
+
+@import 'theme'

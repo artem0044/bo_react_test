@@ -1,0 +1,78 @@
+@import '/src/styles/mixins'
+@import '/src/styles/variables'
+@import '/src/styles/functions'
+
+.wrapper
+	margin: 0 auto
+	padding: 80px 12px 12px 12px
+	max-width: calc(368px + 24px)
+
+	@include media-breakpoint-up(lg)
+		max-width: calc(758px + 24px)
+
+	@include media-breakpoint-up(b1400)
+		max-width: calc(1146px + 24px)
+
+.footer
+	position: relative
+	z-index: 4
+	padding-top: rems(20) 
+	padding-bottom: rems(92)
+
+	&--main
+		background-color: #1C1C21
+
+	.wrapper
+		display: flex
+		flex-direction: column
+		gap: rems(64)
+		@include media-breakpoint-up(md)
+			gap: rems(200)
+
+	&__bg-image
+		position: absolute
+		top: 0
+		left: 50%
+		width: 55%
+		height: 100%
+		object-fit: cover
+		z-index: -2
+
+	&__top
+		display: flex
+		flex-direction: column
+		gap: rems(24)
+		@include media-breakpoint-up(md)
+			gap: rems(64)
+
+	&__text
+		font-weight: 400
+		@include fontSize(16,23)
+		color: #D8D9DF
+		@include media-breakpoint-up(md)
+			@include fontSize(20,28)
+			
+		a
+			color: #D8D9DF 
+	&__nav
+		width: 100%
+
+	&__list
+		display: grid
+		grid-template-columns: 1fr 1fr
+		gap: rems(14)
+		@include fontSize(16,26)
+
+		@include media-breakpoint-up(lg)
+			display: flex
+			justify-content: space-between
+			width: 100%
+
+	&__item
+		text-underline-offset: 25%
+		text-decoration-thickness: 8%
+		a
+			color: #8E90A1
+			text-decoration: underline solid
+
+		

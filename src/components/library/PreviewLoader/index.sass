@@ -1,0 +1,61 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+.previewLoader
+	position: fixed
+	background-color: $black
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	height: 100%
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	z-index: 10000
+	visibility: visible
+	opacity: 1
+	transition: 0.2s
+
+	&.hidden
+		visibility: hidden
+		opacity: 0
+		transition-delay: 0.3s
+
+	&__loader
+		animation: rotate 5s infinite linear
+
+	&__text
+		margin-top: rems(24)
+		text-align: center
+		font-weight: 600
+		@include fontSize(16,28)
+
+@keyframes rotate
+	0%
+		transform: rotate(0)
+
+	100%
+		transform: rotate(360deg)
+
+
+.dots
+	display: inline-block
+	animation: fadeDots 1.5s infinite
+
+@keyframes fadeDots
+	0%
+		opacity: 0
+
+	25%
+		opacity: 1
+
+	50%
+		opacity: 1
+
+	75%
+		opacity: 1
+	100%
+		opacity: 0

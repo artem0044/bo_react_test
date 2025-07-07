@@ -1,0 +1,83 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+.future-notification-wrap
+	position: fixed
+	top: rems(72)
+	right: rems(16)
+	overflow-y: auto
+	//height: 75%
+	border-radius: 14px
+	max-width: rems(360)
+	width: 100%
+	z-index: 999
+	padding: rems(30)
+	margin: rems(-30)
+	
+	@include media-breakpoint-up(md)
+		top: rems(72)
+		right: rems(50)
+	
+	&::-webkit-scrollbar
+		width: 0
+		height: 0
+
+	&::-webkit-scrollbar-thumb
+		height: 0
+		width: 0
+
+	&::-webkit-scrollbar-track
+		background-color: transparent
+
+	.snackbar
+		position: relative
+		left: unset
+		right: unset
+		top: unset
+
+	.snackbar + .snackbar
+		margin-top: rems(25)
+
+.future-notification
+	padding: rems(14) rems(20)
+	background-color: $black-back-field
+	border-left: 3px solid $green2
+	border-radius: 14px
+	box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.70)
+	z-index: 2
+	width: 100%
+	
+	&__icon
+		margin-bottom: rems(10)
+
+	&__title
+		display: flex
+		align-items: center
+		@include fontSize(16,29)
+		font-weight: 700
+		color: $white
+
+		svg
+			margin-left: rems(7)
+			
+	&__text
+		color: $text-second
+		font-weight: 400
+		@include fontSize(12,15)
+
+	&__head
+		padding-bottom: rems(12)
+		margin-bottom: rems(12)
+		border-bottom: 1px solid $line-second
+
+	&__b-title
+		color: $text-second
+		font-weight: 400
+		@include fontSize(10,12)
+		margin-bottom: rems(4)
+
+	&__b-text
+		font-weight: 400
+		@include fontSize(12,15)
+		color: $white

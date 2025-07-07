@@ -1,0 +1,276 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+
+//Fiat Tab
+.fiat
+	&__title
+		font-weight: 600
+		@include fontSize(16,24)
+		color: $white
+		margin-bottom: rems(15)
+
+	&__inp-wrap
+		margin-bottom: rems(24)
+
+	&__btns
+		margin-top: rems(24)
+		display: flex
+		align-items: center
+		flex-direction: column
+
+		@include media-breakpoint-up(b680)
+			flex-direction: row
+
+	&__btn
+		width: 100%
+
+		@include media-breakpoint-up(b680)
+			width: auto
+
+		& + &
+			margin-top: rems(16)
+			@include media-breakpoint-up(b680)
+				margin-top: 0
+				margin-left: rems(24)
+
+	&__info-text
+
+	&__skeleton
+
+		&.MuiSkeleton-root
+			background-color: $dark-grey3
+			height: rems(59)
+			border-radius: 8px
+			@include media-breakpoint-up(md)
+				height: rems(72)
+
+.payment
+	margin-bottom: rems(24)
+
+	@include media-breakpoint-up(md)
+		margin-bottom: rems(30)
+
+	&__card
+		display: flex
+		align-items: center
+		padding: rems(16)
+		border-radius: 8px
+		background: $dark-grey2
+		width: 100%
+		border: 1.5px solid transparent
+
+		&.active
+			border: 1.5px solid $orange
+
+		@include media-breakpoint-up(md)
+			padding: rems(24) rems(32)
+			height: rems(72)
+
+	&__pic
+		margin-right: rems(15)
+		display: block
+		height: rems(24)
+
+		img
+			height: 100%
+
+	&__text
+		color: $white
+		@include fontSize(16,25)
+		letter-spacing: -0.011em
+
+.fiat-info
+	padding: rems(20)
+	border: 2px solid $dark-grey2
+	border-radius: 10px
+
+	&--confirm
+		border: 2px solid $dark-grey2
+		margin-top: rems(20)
+		background-color: $dark-grey2
+
+	&--border
+		border: 3px dashed $dark-grey2
+
+	&__list
+
+	&__item
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-wrap: wrap
+
+		& + &
+			margin-top: rems(8)
+
+	&__text
+		font-weight: 500
+		@include fontSize(14,25)
+		color: rgba($white, 0.4)
+
+	&__value
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+		flex-shrink: 0
+		margin-left: rems(12)
+		white-space: nowrap
+		text-align: right
+
+		&--bg
+			font-weight: 600
+			color: $white
+			padding: rems(2) rems(6)
+			border-radius: 4px
+			background-color: $grey
+			opacity: 0.5
+
+	&__rate
+		font-weight: 400
+		@include fontSize(12,22)
+		color: rgba($white, 0.4)
+
+//Cryptocurrencies (Withdrawal) Tab
+
+.crypto-withdrawal
+	&__currency
+		margin-bottom: rems(50)
+
+	&__title
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+		margin-bottom: rems(10)
+
+	&__list
+		margin-left: rems(-15)
+		margin-top: rems(-15)
+		display: flex
+		overflow-x: auto
+
+		@include media-breakpoint-up(md)
+			align-items: center
+			flex-wrap: wrap
+
+	&__item
+		padding-top: rems(15)
+		padding-left: rems(15)
+
+	&__btn
+		width: 100%
+		@include media-breakpoint-up(b680)
+			width: auto
+
+	&__skeleton.MuiSkeleton-root
+		width: rems(120)
+		border-radius: 8px
+		background-color: $dark-grey3
+		height: rems(49)
+
+		@include media-breakpoint-up(md)
+			width: rems(145.5)
+
+	&__withdrawal
+		margin-top: rems(24)
+
+.crypto-btn
+	display: flex
+	align-items: center
+	width: rems(120)
+	padding: rems(10) rems(15)
+	border-radius: 8px
+	background-color: $dark-grey2
+	border: 2px solid $dark-grey2
+	transition: 0.3s
+
+	@include media-breakpoint-up(md)
+		width: rems(145.5)
+
+	&.active
+		border: 2px solid $orange!important
+
+	&__icon
+		display: block
+		height: 18px
+		width: 18px
+		margin-right: rems(10)
+
+	&__text
+		font-weight: 600
+		@include fontSize(14,25)
+		color: $white
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+
+.tooltip
+	display: flex
+	align-items: center
+	margin-bottom: rems(4)
+
+	.crypto-withdrawal__title
+		margin-bottom: rems(0)
+		margin-right: rems(5)
+
+	&__popper
+		&.MuiTooltip-tooltip
+			padding: rems(10)
+			background: #0B0B0B
+			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05)
+			border-radius: 10px
+			color: $white
+			font-weight: 500
+			@include fontSize(10,16)
+
+			@include media-breakpoint-up(xxl)
+				@include fontSize(12,16)
+
+//Cryptocurrencies (Deposit) Tab
+
+.crypto-deposit
+	&__title
+		font-weight: 500
+		@include fontSize(16,24)
+		color: $white
+		margin-bottom: rems(15)
+
+.crypto-deposit-btn
+	padding: rems(16) rems(24)
+	border-radius: 8px
+	background: $dark-grey2
+	display: flex
+	align-items: center
+
+	@include media-breakpoint-up(xl)
+		padding: rems(24) rems(32)
+
+	&__icon
+		display: block
+		height: 18px
+		width: 18px
+		margin-right: rems(10)
+
+	&__text
+		font-weight: 600
+		@include fontSize(14,24)
+		color: $white
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+		letter-spacing: -0.011em
+
+		@include media-breakpoint-up(xl)
+			@include fontSize(16,26)
+
+	&__l-wrap
+		margin-right: rems(15)
+		display: flex
+		align-items: center
+
+	&__full-name
+		font-weight: 500
+		@include fontSize(14,24)
+		letter-spacing: -0.011em
+		color: rgba($white, 0.5)

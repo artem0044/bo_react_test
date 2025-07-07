@@ -1,0 +1,68 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.table
+	margin-top: 0
+	overflow-x: auto
+
+	&__tr
+		display: flex
+		align-items: center
+		padding: rems(15.5) rems(9)
+		border-radius: 4px
+		background-color: $dark-grey
+
+		&--head
+			background-color: transparent
+
+		& + &
+			margin-top: rems(15)
+
+	&__td
+		padding: 0 rems(6)
+
+
+	&__text
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+		width: fit-content
+		display: inline
+
+		span
+			font-weight: 500
+			color: rgba($white,0.5)
+			@include fontSize(14,25)
+			margin-left: rems(10)
+
+
+		&--bg
+			padding: rems(4) rems(8)
+			background: #3C3B3B
+			border-radius: 4px
+			width: fit-content
+
+		&--blue
+			color: #2EA7EB!important
+			text-align: right
+
+	&__wrap
+		display: flex
+		align-items: center
+
+	&__copy
+		flex-shrink: 0
+		margin-left: rems(10)
+
+	&__skeleton
+		height: rems(40)
+		border-radius: 8px
+		background-color: $dark-grey3
+		
+.MuiSkeleton-root.main-skeleton
+	height: rems(40)
+	width: 100%
+	border-radius: 8px
+	background-color: $dark-grey3
+	

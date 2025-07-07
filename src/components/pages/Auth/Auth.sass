@@ -1,0 +1,226 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.auth
+	padding-top: rems(30)
+	padding-bottom: rems(45)
+	height: 100%
+	position: relative
+
+	@include media-breakpoint-up(lg)
+		//background: url("../../../assets/images/auth-bg-lg.png") no-repeat center
+		padding-top: rems(94)
+		padding-bottom: rems(114)
+
+	@include media-breakpoint-up(b1400)
+		//background: url("../../../assets/images/auth-bg.png") no-repeat center
+		padding-top: rems(77)
+		padding-bottom: rems(136)
+
+	&__bg
+		//assets/images/bg/footer-bg.png
+		position: absolute
+		top: -142px
+		display: block
+		width: 100vw
+		min-height: calc(100% + 142px)
+		background: url("../../../assets/images/bg/footer-bg.png") no-repeat center / cover
+		z-index: -1
+			
+		&:before
+			position: absolute
+			content: ''
+			width: 100vw
+			bottom: 0
+			background: linear-gradient(180deg, rgba(255, 75, 0, 0) 0%, rgba(255, 75, 0, 0.7) 17.82%, #FF4B00 45.56%)
+			height: 70%
+				
+	&__wrapper
+		display: flex
+		justify-content: center
+
+.auth-form
+	width: 100%
+	background-color: $white
+	border-radius: 8px
+
+	.bo-input
+		&:not(:last-child) 
+			margin-bottom: rems(20)
+	&__inputs
+
+	@include media-breakpoint-up(b680)
+		margin: 0
+
+	&__title
+		font-weight: 600
+		@include fontSize(32,51)
+		margin-bottom: rems(12)
+		color: $black
+
+	&__text
+		font-weight: 400
+		@include fontSize(16,24)
+		color: #121212
+		margin-bottom: rems(12)
+
+		a
+			color: $orange
+
+	&__inp-wrap
+		margin-bottom: rems(25)
+
+		@include media-breakpoint-up(lg)
+			margin-bottom: 30px
+
+	&__list-pattern
+		margin-bottom: rems(16)
+
+	&__list-agree
+
+	&__btn
+		margin-top: rems(60)
+		width: 100%
+
+		@include media-breakpoint-up(md)
+			display: block!important
+			margin-top: rems(24)
+			width: auto
+
+	&__link
+		display: block
+		color: $orange
+		font-weight: 400
+		@include fontSize(16,22)
+		margin-bottom: rems(16)
+
+	&__back
+		display: flex
+		align-items: center
+		color: $orange
+		font-weight: 500
+		@include fontSize(16,29)
+		margin-bottom: rems(24)
+
+		img
+			margin-right: rems(8)
+
+	&__error
+		color: $red
+		@include fontSize(14,25)
+		font-weight: 500
+		margin: rems(4) 0
+
+	.bo-input
+		&__label-text
+			color: $black
+		
+		&__input
+			color: $black
+			background-color: transparent
+			border: 1px solid #8E90A1
+			border-radius: 7px
+
+			&:focus
+				border: 1px solid #FF6C22
+			
+	.btn
+		margin: 0 auto
+		width: 100%
+		@include fontSize(20,24)
+		font-weight: 600
+			
+	.btn:disabled
+		color: #ffff!important
+		background-color: #FFAF70!important
+		
+	.bo-checkbox-label
+		color: $black
+
+	.divider 
+		display: flex
+		align-items: center
+		text-align: center
+		padding: 0 rems(13)
+		margin: rems(8) 0
+
+		&::before,
+		&::after 
+			content: ''
+			flex-grow: 1
+			height: 1px
+			background: #D8D9DF
+
+		span 
+			padding: 0 rems(10)
+			color: #8E90A1
+
+
+.list-pattern
+	&__item
+		display: flex
+		align-items: center
+
+		& + &
+			margin-top: rems(10)
+
+		svg
+			margin-right: rems(15)
+
+	&__text
+		color: $grey
+		font-weight: 400
+		@include fontSize(14,25)
+
+
+.list-agree
+	margin-top: rems(24)
+	margin-bottom: rems(24)
+
+	&__item
+		& + &
+			margin-top: rems(20)
+
+.completed
+	padding: rems(30)
+	border-radius: 8px
+	text-align: center
+	max-width: rems(470)
+	width: 100%
+
+	@include media-breakpoint-up(lg)
+		background-color: $grey-form
+		margin-bottom: rems(300)
+
+	&__icon
+		display: block
+		margin-bottom: rems(10)
+
+	&__title
+		font-weight: 600
+		@include fontSize(32,51)
+		color: $white
+		margin-bottom: rems(10)
+
+	&__text
+		font-weight: 400
+		@include fontSize(14,25)
+		color: $white
+
+	&__btn
+		margin-top: 24px
+
+.success
+	p
+		color: $green
+
+	path
+		fill: $green
+
+.fail
+	path
+		fill: $red
+
+	p
+		color: $red

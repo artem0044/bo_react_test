@@ -1,0 +1,21 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.tradingview-widget
+	width: 100%
+	height: max-content
+	flex: 1
+	z-index: 0
+	position: relative
+	display: inline-block
+
+	@include media-breakpoint-up(md)
+		height: 100%
+	//
+	//&.resize
+	//	width: calc(100vw - 62px - 200px - 390px)
+
+	&__wrapper
+		height: 100%
+		width: 100%

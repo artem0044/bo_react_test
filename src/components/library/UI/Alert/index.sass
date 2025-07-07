@@ -1,0 +1,50 @@
+@import '../../../../styles/mixins'
+@import '../../../../styles/variables'
+@import '../../../../styles/functions'
+
+.snackbar
+	.MuiAlert-root
+		padding: rems(16) rems(24)
+		align-items: center
+		max-width: 396px
+
+	.MuiAlert-standardError
+		background: #DDC0C0
+		backdrop-filter: blur(20px)
+		border-radius: 8px
+
+		.MuiAlert-message
+			color: $red
+
+		.MuiSvgIcon-root
+			color: $red
+
+	.MuiAlert-standardSuccess
+		background-color: #C1E8D7
+		backdrop-filter: blur(20px)
+		border-radius: 8px
+
+		.MuiAlert-message
+			color: #00AD64
+
+		.MuiSvgIcon-root
+			color: #00AD64
+
+	.MuiAlert-icon
+		padding: 0
+		margin-right: rems(12)
+		height: auto
+
+	.MuiAlert-message
+		padding: 0
+		font-weight: 600
+		@include fontSize(14,21)
+		font-family: $font-base
+
+	.MuiButtonBase-root
+		padding: 0
+
+	.MuiAlert-action
+		padding: 0
+		height: rems(24)
+		width: rems(24)

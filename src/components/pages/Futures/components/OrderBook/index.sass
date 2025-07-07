@@ -1,0 +1,105 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+.orderBook
+	padding: rems(16) 0 rems(6)
+	background-color: $grey-form
+	overflow: hidden
+	overflow-y: auto
+
+	@include media-breakpoint-up(md)
+		height: rems(308)
+	
+	@include media-breakpoint-up(md)
+		border: 1px solid $line-main
+		border-radius: 14px
+	
+	@include media-breakpoint-up(lg)
+		height: rems(500)
+	
+	@include media-breakpoint-up(xl)
+		padding: rems(20) 0	
+		height: rems(590)
+		
+	&__head
+		@include fontSize(16,19)
+		font-weight: 500
+		color: $white
+		padding: 0 rems(14)
+		margin-bottom: rems(6)
+		display: none
+		
+		@include media-breakpoint-up(md)
+			display: block
+		
+	&__table
+		padding: rems(6) rems(14)
+
+	&__table-head
+		margin-bottom: rems(6)
+
+	&__table-tr
+		display: flex
+		justify-content: space-between
+
+		& + &
+			margin-top: rems(2)
+
+	&__table-td
+		&:nth-child(1)
+			flex: 0 1 rems(70)
+			
+			@include media-breakpoint-up(xl)
+				flex: 0 1 rems(86)
+
+		&:nth-child(2)
+			flex: 0 1 rems(60)
+			text-align: right
+			
+			@include media-breakpoint-up(xl)
+				flex: 0 1 rems(60)
+
+		&:nth-child(3)
+			text-align: right
+			flex: 0 1 rems(64)
+			
+			@include media-breakpoint-up(xl)
+				flex: 0 1 rems(60)
+			
+		& + &
+			padding-left: rems(2)
+
+	&__table-body
+
+	&__table-value
+		@include fontSize(12,22)
+		font-weight: 600
+		color: $white
+
+		&--red
+			color: $red2
+
+		&--green
+			color: $green2
+
+	&__text
+		@include fontSize(10,22)
+		font-weight: 400
+		color: $text-second
+
+	&__middle
+		padding: rems(10) rems(14)
+		border-top: 1px solid $line-main
+		border-bottom: 1px solid $line-main
+
+	&__middle-value
+		@include fontSize(14,17)
+		color: $white
+		font-weight: 700
+
+		&--green
+			color: $green2
+
+		&--red
+			color: $red2

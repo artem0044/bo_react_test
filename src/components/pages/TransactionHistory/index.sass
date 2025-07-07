@@ -1,0 +1,56 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+.t-history-select
+	&.MuiInputBase-root
+		min-width: rems(160)
+		margin-right: 100%
+		margin-bottom: rems(16)
+
+		@include media-breakpoint-up(md)
+			margin-bottom: 0
+			min-width: rems(120)
+			margin-right: rems(16)
+
+
+.top-history
+	border-radius: 8px
+	margin-bottom: rems(36)
+	max-width: 814px
+
+	@include media-breakpoint-up(b680)
+		padding: rems(24)
+
+	@include media-breakpoint-up(md)
+		padding: rems(30)
+		background: $grey-form
+
+	&__wrapper
+
+		@include media-breakpoint-up(md)
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+	&__left
+		@include media-breakpoint-up(md)
+			margin-right: rems(16)
+
+	&__title
+		font-weight: 600
+		@include fontSize(26,32)
+		color: $white
+
+		@include media-breakpoint-up(md)
+			@include fontSize(32,44)
+
+	&__right
+
+	&__trade-btn
+		margin-top: rems(24)
+		width: 100%
+		@include media-breakpoint-up(md)
+			margin-top: 0
+			width: auto
+			margin-left: rems(15)

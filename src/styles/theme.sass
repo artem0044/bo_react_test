@@ -1,0 +1,853 @@
+//theme
+
+
+$styles-map: (blue: (main-color: #22AEFF,border-color: rgba(230, 230, 230, 0.70),down-btn: #22AEFF,up-btn: #ffffff, bg-color: #ffffff),green: (main-color: #8EF43D,border-color: rgba(100, 100, 100, 0.70),down-btn: #FAE017,up-btn: #8EF43D, bg-color: #477621),red: (main-color: #FF0000,border-color: rgba(150, 150, 150, 0.70),down-btn: #E31D1C,up-btn: #E7E7E7, bg-color: rgba(#FF0000,0.2)),dark-green: (main-color: #056E52,border-color: rgba(50, 50, 50, 0.70),down-btn: #FD4840,up-btn: #056E52, bg-color: #091C17))
+
+@each $class, $values in $styles-map
+	.#{$class}
+		$main-color: map-get($values, main-color)
+		$border-color: map-get($values, border-color)
+		$down-btn: map-get($values, down-btn)
+		$up-btn: map-get($values, up-btn)
+		$bg-color: map-get($values, bg-color)
+
+		.btn--orange,
+		.btn--border.active
+			background-color: $main-color
+			border-color: $main-color
+
+			@if $class == red or $class == blue or $class == dark-green
+				color: $white
+
+		.control__down
+			background-color: $down-btn
+
+			@if $class == red
+				color: $black
+
+			.control__btn-icon
+				@if $class == green
+					border: 1px solid #FFF6D1
+					background-color: #FFE88D
+
+				@if $class == blue
+					border: 1px solid rgba(254, 254, 255, 0.30)
+					background-color: #1D9FEB
+
+		.control__up
+			background-color: $up-btn
+
+			@if $class == red or $class == blue or $class == green
+				color: $black
+
+			.control__btn-icon
+				@if $class == green
+					border: 1px solid rgba(254, 249, 245, 0.30)
+					background: #C7FF9B
+
+				@if $class == blue
+					border: 1px solid #C5C5C5
+					background: #ECECEC
+
+				@if $class == red
+					border: 1px solid rgba(74, 74, 74, 0.30)
+					background: #C8C8C8
+
+				@if $class == dark-green
+					border: 0.5px solid rgba(255, 255, 255, 0.30)
+					background: #056249
+
+		.mode-select-menu .MuiMenuItem-root.Mui-selected
+			border-color: $main-color
+
+		.bo-calendar-popper .MuiTypography-root
+			color: $main-color
+
+		.notification-card .Mui-checked + .MuiSwitch-track, .notification-card .Mui-checked:hover + .MuiSwitch-track
+			background-color: $main-color!important
+
+		.settings__link,
+		.step-section__title,
+		.welcome-btn__btn-arrow,
+		.gift-popup__link,
+		.step-section__inp-wrap .bo-input__label-text,
+		.auth-form__link,
+		.auth-form__text a,
+		.bo-checkbox-label a,
+		.bo-radio .MuiButtonBase-root.Mui-checked,
+		.top-balance__link,
+		.bonusAlert__title,
+		.bonusAlert__text
+			color: $main-color
+
+		.step-section__step,
+		.authentication-step__bar-active,
+		.select-trade-mobile__btn.active
+			background-color: $main-color
+
+		.trading-aside-sec.active,
+		.trading-aside-amount__btn.active,
+		.trading-aside-time__btn.active,
+		.payment__card.active,
+		.tradingHistory__sort-btn.active,
+		.btn--border,
+		.bo-calendar-popper .MuiPickersDay-today:not(.Mui-selected)
+			border-color: $main-color
+
+		.bo-checkbox:checked + label::before, .bo-checkbox.checked + label::before
+			background-image: url("../assets/images/icons/checkOn-#{$class}.svg")
+
+		.bo-calendar-popper .MuiPickersYear-root .Mui-selected,
+		.bo-calendar-popper .MuiPickersDay-root.Mui-selected,
+		.bo-calendar-popper .MuiPickersDay-root:focus
+			background-color: $main-color!important
+
+		.bonusAlert
+			border-color: $main-color
+			background-color: $bg-color
+
+		.desc-change-theme__btn.active,
+		.change-theme__btn.active
+			border-color: $main-color
+
+			@if $class != blue
+				background-color: $bg-color
+			@else
+				background-color: rgba($main-color,0.2)
+
+		.bonusAlert__close
+			path
+				fill: $main-color
+
+		.previewLoader
+			background-color: $dark-grey
+
+			.MuiCircularProgress-root
+				color: $main-color
+				
+		.crypto-btn.active
+			border-color: $main-color!important
+
+		.auth-popup__continue
+			color: $main-color
+			
+//WHITE
+body.white
+	$bg-base: #ffffff
+	$grey: #707070
+	$dark-grey: #F0F0F0
+	$dark-grey2: #F6F6F6
+	$dark-grey3: #979797
+
+	background-color: $white
+	color: $black
+
+	.internal-content
+		background-color: #F2F2F2
+
+	.btn--orange:disabled
+		color: rgba($dark-grey2, 0.8)!important
+
+	.sidebar
+		background-color: $white
+
+		&__nav-link
+			&.active
+				background-color: $dark-grey
+
+				.sidebar
+					&__nav-text
+						color: #121212
+
+					&__nav-icon
+						path
+							fill: #121212
+							
+			&:hover
+				.sidebar
+					&__nav-text
+						color: #121212
+	
+					&__nav-icon
+						path
+							fill: #121212
+
+	.header
+		background-color: $white
+
+	.trading-aside__wrap,
+	.trading-aside__section--sticky
+		background-color: $dark-grey
+
+	.trading-aside__open-history
+		background-color: $white
+		color: $black
+
+		&:hover
+			background-color: rgba($text-second, 0.4)
+		
+	.trading-aside-sec
+		background-color: $white
+
+	.trading-aside-sec__val,
+	.mode-item__value
+		color: $black
+		
+		& span
+			color: $black!important
+
+	.trading-aside-amount,
+	.trading-aside-time
+		background-color: $white
+
+
+	.trading-aside-amount__btn,
+	.trading-aside-time__btn,
+	.historyOfDay__btn
+		background-color: $dark-grey
+		color: $black
+		svg path
+			fill: $black
+
+
+	.trading-aside,
+	.tradingHistory
+		background-color: $white
+
+		&__sort-btn
+			background-color: $dark-grey
+			backdrop-filter: blur(6px)
+			color: $black
+			
+	.tradingHistory
+		&__header
+			background-color: $white
+
+	.payout__title
+		color: $black
+	.payout__value
+		color: #000000
+	.payout
+		border-color: rgba(55, 55, 55, 0.30)
+
+	.historyDayItem
+		background-color: $dark-grey
+
+		&__btn
+			background-color: $dark-grey
+
+		&__text
+			color: $black
+
+		&__title
+			color: rgba(#000000, 0.5)
+
+	.tradingPairs
+
+		&__selected-wrapper,
+		&__content
+			background-color: $dark-grey2
+
+		&__input
+			background-color: $white
+			color: $black
+
+		&__btn
+			background-color: $white
+			color: $dark-grey3
+
+		&__name
+			color: $black
+
+		&__selected-info,
+		&__title
+			color: $black
+			
+		&__item-percent
+			color: $black
+
+	.mode-select .MuiSelect-select
+		background-color: $dark-grey2!important
+
+	.mode-select-menu .MuiMenuItem-root
+		background-color: $white!important
+
+	.mode-select-menu .MuiList-root
+		background-color: $dark-grey2
+
+	.header__mini-btn
+		background-color: $dark-grey2
+
+	.welcome
+		background-color: $dark-grey2
+		border-color: rgba(55, 55, 55, 0.3)
+
+		&__title
+			color: $black
+
+	.popup__close
+		path
+			fill: $dark-grey3
+
+	.welcome-btn
+		background-color: $white
+
+		&__title,
+		&__text
+			color: $black
+
+	.gift-popup
+		background-color: $dark-grey2
+		border-color: rgba(55, 55, 55, 0.3)
+
+		&__title,
+		&__text
+			color: $black
+
+	.desc-change-theme,
+	.change-theme
+		&__content
+			background-color: $white
+
+		&__title
+			color: $black
+
+		&__btn
+			background-color: $dark-grey
+
+		&__text
+			color: $black
+
+	.top-balance
+		@include media-breakpoint-up(md)
+			background-color: $white
+
+		&__title,
+		&__balance
+			color: $black
+
+		&__btn
+			background-color: $dark-grey
+			color: $black
+
+			&.active
+				background-color: #232323 !important
+				color: #fff !important
+				
+			&.disabled
+				background-color: $dark-grey!important
+				color: $black!important
+
+	.tabs .Mui-selected,
+	.tabs .base--selected
+		background-color: $white
+
+	.tabs .MuiTab-root,
+	.tabs .base-Tab-root
+		color: $black!important
+
+	.tab-content.MuiTabPanel-root
+	.tab-content.base-TabPanel-root
+		background-color: $white
+
+	.fiat__title
+		color: $black
+
+	.payment
+		&__card
+			background-color: $dark-grey
+
+		&__text
+			color: $black
+
+	.bo-input
+		&__label-text
+			color: $black
+
+		&__input
+			background-color: $dark-grey
+			border-color: $dark-grey2
+			color: $black
+
+			&::placeholder
+				color: $dark-grey3
+
+			.form-control
+				color: $black
+
+	.fiat-info
+		border-color: $dark-grey2
+
+		&__text,
+		&__value
+			color: $black
+
+	.table
+		&__tr
+			background-color: $dark-grey
+		&__text
+			color: $black
+
+			span
+				color: $dark-grey3
+
+	.crypto-deposit-btn
+		background-color: $dark-grey
+
+		&__text
+			color: $black
+
+		&__full-name
+			color: $dark-grey3
+
+	.crypto-inp-counter
+		&__inp
+			background-color: $dark-grey
+
+		&__value
+			color: $black
+
+		&__value--addition
+			background-color: $dark-grey2
+
+	.crypto-btn
+		background-color: $dark-grey
+		border-color: $dark-grey
+
+		&__text
+			color: $black
+
+		&__full-name
+			color: $dark-grey3
+
+	.successfulWithdrawal,
+	.confirmWithdrawal
+		background-color: $dark-grey2
+		border-color: rgba(55, 55, 55, 0.3)
+
+		&__title,
+		&__text
+			color: $black
+
+	.fiat-info--confirm
+		background-color: $dark-grey
+
+	.profile
+		@include media-breakpoint-up(md)
+			background-color: $white
+
+		&__title
+			color: $black
+
+	.bo-select
+		.MuiSelect-select,
+		.MuiAutocomplete-inputRoot
+			background-color: $dark-grey!important
+			border-color: #F6F6F6
+			color: $black
+
+		&.MuiInput-root
+
+			&:before
+				opacity: 0
+
+	.bo-select-content
+		.MuiPaper-root
+			background-color: $dark-grey
+
+		.MuiButtonBase-root
+			color: $black
+
+			&:hover
+				background-color: $dark-grey3
+
+		.MuiButtonBase-root.Mui-selected
+			background-color: $dark-grey3
+
+	.bo-calendar
+		.MuiInputBase-root
+			background-color: $dark-grey
+			color: $black
+
+		.MuiSvgIcon-root
+			fill: $black
+
+	.bo-calendar-popper
+		.MuiPaper-root,
+		.MuiDateCalendar-root
+			background-color: $dark-grey
+			color: $black
+
+		.MuiPickersFadeTransitionGroup-root,
+		.MuiPickersDay-root,
+		.MuiPickersYear-root .MuiPickersYear-yearButton
+			color: $black
+
+	.verification
+		background-color: $dark-grey
+
+	.top-history
+		@include media-breakpoint-up(md)
+			background-color: $white
+
+		&__title
+			color: $black
+
+	.bo-select-mini
+		.MuiSelect-select,
+		&.MuiInputBase-root
+			background-color: $white
+			color: $black
+
+		&.MuiInputBase-root.open .MuiSelect-select
+			background-color: $white
+
+		.MuiSelect-icon path
+			fill: $dark-grey3!important
+
+	.table__text--bg
+		background-color: $dark-grey3
+
+	.tab-content--scroll
+		background-color: $white
+
+	.settings
+		&__title
+			color: $black
+
+	.notification-card
+		&.MuiFormControlLabel-root
+			background-color: $dark-grey
+
+		.MuiTypography-root
+			color: $black
+
+	.pagination .MuiButtonBase-root, .pagination .MuiPaginationItem-root
+		background-color: $white
+		color: $black
+		border-color: $dark-grey2
+
+	.mobile-header__btn-history
+		background-color: $dark-grey
+
+	.mobile-sidebar
+		&__wrapper
+			background-color: $white
+
+		&__name,
+		&__email
+			color: $black
+
+		&__nav-link.active
+			background-color: $dark-grey3
+
+	.mobile-header
+		&__burger
+			background-color: $dark-grey
+
+	.select-trade-mobile
+		&__open-btn
+			background-color: $white
+			color: $black
+
+		&__time
+			color: $black
+
+	.select-trade-mobile
+		&__content-wrap
+			background-color: $white
+
+		&__btn
+			background-color: $dark-grey
+			color: $black
+
+			&.active
+				background-color: $orange
+
+	.g-settings__label,
+	.settings__text
+		color: $black
+
+	.footer
+		&__bottom,
+		&__top
+			border-color: #EAEAEA
+
+		&__link,
+		&__text,
+		&__text a
+			color: $black
+
+		&__logo
+			filter: brightness(0)
+			
+	.bo-radio .MuiTypography-root
+		color: $black
+
+	.bo-radio .MuiButtonBase-root
+		color: $dark-grey3
+
+		&.Mui-checked
+			color: $orange
+
+	.howItWorks-card
+		border-color: $dark-grey3
+
+		&__title,
+		&__text
+			color: $black
+
+	.authentication-step
+		&__title,
+		&__text
+			color: $black
+
+		&__bar
+			background-color: $dark-grey3
+
+			&-active
+				background-color: $orange
+
+	.step-section
+		&__text
+			color: $black
+
+	.step-section__qr-copy
+		background-color: $dark-grey
+
+	.bo-select-mini-content
+		.MuiPaper-root
+			background-color: $dark-grey
+
+		.MuiButtonBase-root
+			color: $black
+
+			&.Mui-selected
+				background-color: $dark-grey3!important
+
+	.mode-select
+		&__btn
+			background-color: $dark-grey
+
+	.MuiMenuItem-root.Mui-selected .mode-item__icon
+		background-color: $dark-grey2
+			
+	.mode-item
+		&__icon
+			path
+				fill: $black
+				
+		&-content
+			&__deposit
+				background-color: rgba(255, 108, 34, 0.6)
+					
+	.bo-skeleton
+		&.MuiSkeleton-root
+			background-color: $dark-grey2
+
+	.previewLoader
+		background-color: $dark-grey
+
+		&__loader
+			circle
+				stroke: $black
+
+	.sidebar__nav-link,
+	.header__mini-btn
+		transition: none
+
+	.notFound
+		&__img
+			opacity: 0.5
+
+		&__text
+			color: $black
+
+		&__title
+			opacity: 0.8
+			
+	.ticker-digit
+		color: $black
+		
+	.fiat
+		&__skeleton
+			background-color: $dark-grey3
+			
+	.bid-notification
+		background-color: $dark-grey
+		border-color: $dark-grey3
+		
+	.tab-warning
+		background-color: $white
+		
+		&__title,
+		&__text
+			color: $black
+		
+	.info
+		&__wrapper
+			background-color: $dark-grey
+		
+		&__title,
+		.info-sec__text,
+		.info-sec__title
+			color: $black
+			
+	.accordion__text
+		color: $black
+		
+	.pairTab
+		background-color: $dark-grey
+		
+		&:hover
+			background-color: rgba($text-second, 0.4)
+		
+		&__name
+			color: $black
+			
+			
+		&__close
+		
+			path
+				fill: $black
+				
+	.futures-quote
+		background-color: $dark-grey
+		
+		&__current-pair-title,
+		&__value
+			color: $black
+			
+	.orderBook
+		background-color: $dark-grey
+		
+		&__head,
+		&__middle-value
+			color: $black
+			
+		&__table-value:not(.orderBook__table-value--red, .orderBook__table-value--green)
+			color: $black
+			
+	.futuresControls
+		background-color: $dark-grey
+		
+		&__head-title
+			color: $black
+			
+		&__scale
+			background-color: $dark-grey3
+		
+		&__tab--active
+			color: $black
+			border-color: $black
+
+		&__info-text span
+			color: $black
+			
+	.futuresControlsInput
+		background-color: $dark-grey2
+		border-color: $grey
+		
+		&__input,
+		&__curreny
+			color: $black
+			
+	.futuresOrders
+		background-color: $dark-grey
+
+		&__tab--active
+			color: $black
+			border-color: $black
+			
+	.MuiTableContainer-root.futuresOrdersTable
+		background-color: $dark-grey
+
+		.MuiTableCell-root,
+		.MuiTableCell-root.MuiTableCell-head
+			background-color: $dark-grey
+			color: $black
+
+		.futuresOrdersTable
+			&__v-indicator
+				margin-right: rems(4)
+				
+			&__tag
+				color: $white
+				
+			&__symbol-name
+				color: $black
+				
+			&__symbol-status
+				color: $black
+
+	.MuiSkeleton-root.main-skeleton
+		background-color: $dark-grey3
+		
+	.MuiTableContainer-root.futuresOrdersTable
+		scrollbar-color: $grey $dark-grey2
+
+	.adiustLeveragePopup
+		background-color: $dark-grey
+		
+		&__title
+			color: $black
+
+	.adiustLeverageForm
+		&__label-text
+			color: $black
+			
+		&__counter
+			background-color: $dark-grey3
+			
+	.transderPopup
+		background-color: $dark-grey
+		
+		&__title
+			color: $black
+			
+	.transferInput
+		background-color: $dark-grey2
+		
+		&__label-text,
+		&__wallet-name
+			color: $black
+
+		&__input
+			color: $black
+
+			&::placeholder
+				color: $dark-grey3
+
+	.transferForm
+		&__lavel-text
+			color: $black
+			
+		&__amount-input
+			color: $black
+			
+		&__imount-input-wrap
+			background-color: $dark-grey2
+			
+		&__balance-text,
+		&__balance-num
+			color: $black
+			
+	.btn--grey-border
+		border-color: $black
+		color: $black
+		
+	.mainTabs
+		&__tabs
+			background-color: $dark-grey2
+		
+		&__tab--active
+			color: $black
+			border-color: $black
+			
+	.future-notification
+		background-color: $dark-grey
+		box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.20)
+
+		&__title,
+		&__b-text
+			color: $black

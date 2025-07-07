@@ -1,0 +1,702 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+.futures
+	position: relative
+	padding: rems(14) 0 rems(74)
+	@include media-breakpoint-up(md)
+		padding: rems(14)
+	
+	&__content
+		display: flex
+		flex-direction: column
+		
+		@include media-breakpoint-up(md)	
+			flex-wrap: wrap
+			margin: 0 rems(-5) 0
+			min-width: 100%
+			flex-direction: row
+			
+	&__chart,
+	&__order,
+	&__controls,
+	&__orders,
+	&__trades
+		@include media-breakpoint-up(md)
+			padding: rems(10) rems(5) 0
+			min-width: 0
+		
+	&__chart
+		flex: 1 0 100%
+		
+		@include media-breakpoint-up(md)
+			flex: 1 0 60%
+			
+		@include media-breakpoint-up(lg)	
+			flex: 1 0 47.3%
+		
+		.TVChartContainer
+			overflow: hidden
+			height: rems(420)
+			
+			@include media-breakpoint-up(md)
+				border-radius: 14px
+				border: 1px solid $line-main
+				height: rems(500)
+
+			@include media-breakpoint-up(xl)
+				height: rems(590)
+
+	&__order
+		order: 1
+		flex: 1 0 100%
+		max-width: 440px
+		
+		@include media-breakpoint-up(md)
+			flex: 0 0 60%
+			
+		@include media-breakpoint-up(lg)
+			order: 0
+			flex: 0 0 24.4%
+			
+		
+	&__controls
+		flex: 0
+		max-width: 510px
+		@include media-breakpoint-up(md)
+			flex: 0 0 40%
+
+		@include media-breakpoint-up(lg)
+			flex: 0 0 28.3%
+			
+	&__orders
+		order: 2
+		flex: 1
+		
+		@include media-breakpoint-up(lg)
+			flex: 1 0 71.7%
+			order: 0
+		
+	&__trades
+		order: 1
+		flex: 1 0 100%
+			
+		@include media-breakpoint-up(md)
+			flex: 0 0 40%
+
+		@include media-breakpoint-up(lg)
+			flex: 0 0 28.3%
+			order: 0
+	
+.futuresControls
+	border-radius: 14px 14px 0 0
+	border: 1px solid $line-main
+	background-color: $grey-form
+	overflow: hidden
+	display: flex
+	flex-direction: column
+	padding-bottom: rems(24)
+	height: rems(500)
+	position: fixed
+	bottom: 0
+	left: 0
+	width: 100%
+	z-index: 9
+	max-height: 100%
+	overflow-y: auto
+	visibility: hidden
+	opacity: 0
+	transition: 0.3s ease
+	transform: translateY(100%)
+	
+	@include media-breakpoint-up(md)
+		transform: translateY(0)
+		visibility: visible
+		opacity: 1
+		max-height: unset
+		z-index: 0
+		position: relative
+		border-radius: 14px	
+	
+	@include media-breakpoint-up(xl)
+		height: rems(590)
+	
+	&.active
+		visibility: visible
+		opacity: 1
+		transform: translateY(0)
+		
+		& + .futuresControlsBg
+			visibility: visible
+			opacity: 1
+		
+	&__head
+		padding: rems(14)
+		border-bottom: 1px solid $line-main
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__head-title
+		@include fontSize(14,17)
+		color: $white
+		font-weight: 500
+
+	&__scale
+		flex-shrink: 0
+		width: rems(80)
+		height: rems(29)
+		margin-left: rems(16)
+		border-radius: 6px
+		border: 1px solid $line-main
+		background-color: $black-back-field
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		@include fontSize(14,17)
+		font-weight: 500
+		color: $white
+
+	&__body
+		padding: rems(14)
+		flex: 1
+
+	&__tabs
+		display: flex
+		overflow-x: auto
+		margin-bottom: rems(14)
+		
+	&__tab
+		padding: rems(4) 0 rems(8)
+		@include fontSize(14,14)
+		color: $text-second
+		font-weight: 500
+		
+		&--active
+			color: $white
+			border-bottom: 1px solid $white
+		
+		& + &
+			margin-left: rems(20)
+
+	&__text
+		color: $text-second
+		font-weight: 400
+		@include fontSize(12,15)
+		margin-bottom: rems(10)
+		
+	&__inp-wrap
+
+	&__footer
+		padding: 0 rems(14)
+
+	&__btns
+		display: flex
+		margin-bottom: rems(18)
+		
+	&__btn-buy
+		background-repeat: no-repeat
+		background-size: 100% 100%
+		border-radius: 7px
+		overflow: hidden
+		position: relative
+		margin-right: -3%
+	
+	&__btn-sell
+		background-repeat: no-repeat
+		background-size: 100% 100%
+		border-radius: 7px
+		overflow: hidden
+		position: relative
+		margin-left: -3%
+
+	&__btn-buy,
+	&__btn-sell
+		padding: rems(14)
+		flex: 1
+		color: $white
+		font-weight: 500
+		@include fontSize(14,14)
+		height: rems(42)
+
+		svg
+			position: absolute
+			inset: 0
+			width: 100%
+			height: 100%
+			
+		span
+			position: relative
+		
+	&__info-list
+		&--right
+			text-align: right
+
+	&__info-item
+		& + &
+			margin-top: rems(10)
+
+	&__info-text
+		color: $text-second
+		font-weight: 400
+		@include fontSize(12,15)
+		
+		span
+			color: $white
+			margin-left: rems(6)
+
+	&Mob
+		position: fixed
+		bottom: 0
+		left: 0
+		width: 100%
+		z-index: 8
+		padding: rems(16)
+		background-color: $black-back-field
+		height: rems(74)
+		
+		.futuresControls__btns
+			margin-bottom: 0
+			
+	&Bg
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		height: 100%
+		width: 100%
+		background-color: rgba($black, 0.2)
+		backdrop-filter: blur(2px)
+		opacity: 0
+		visibility: hidden
+		transition: 0.3s
+			
+	&__close
+		margin-left: rems(24)
+		
+.futuresControlsInput
+	height: rems(60)
+	border-radius: 10px
+	border: 2px solid $line-main
+	background-color: $black-back-field
+	display: flex
+	align-items: center
+	justify-content: space-between
+	padding: rems(12) rems(16)
+	margin-top: rems(10)
+	
+	&__left
+		margin-right: rems(12)
+		flex: 1
+
+	&__lalel-text
+		@include fontSize(12,12)
+		font-weight: 500
+		color: $text-second
+		margin-bottom: rems(7)
+
+	&__input
+		color: $white
+		-moz-appearance: textfield
+		appearance: none
+		width: 100%
+		text-align: left
+		@include fontSize(16,16)
+		padding: 0
+		border: none
+		width: 100%
+
+		&::-webkit-outer-spin-button
+		&::-webkit-inner-spin-button
+			-webkit-appearance: none
+				
+		&:focus
+			outline: none
+
+	&__right
+
+	&__curreny
+		@include fontSize(16,16)
+		color: $white
+		font-weight: 500
+		
+.custom-range
+	margin-top: rems(10)
+	
+	&.MuiSlider-root	
+		padding: rems(16) rems(4)
+		height: rems(5)
+		opacity: 1
+		width: calc(100% - rems(8))
+		box-sizing: border-box
+		margin-left: rems(4)
+		
+	.MuiSlider-rail
+		background-color: $line-main
+		border-radius: 14px
+		overflow: hidden
+		
+	.MuiSlider-track
+		background-color: $orange
+		border: none
+		
+	.MuiSlider-mark
+		background-color: $line-second
+		height: inherit
+		width: 4px
+		
+		&Active
+			background-color: $orange
+
+	.MuiSlider-thumb
+		background-color: $grey-form
+		border: 3px solid $orange
+		height: rems(15)
+		width: rems(15)
+		box-shadow: none!important
+		
+	.MuiSlider-markLabel
+		color: $text-second
+		font-weight: 500
+		@include fontSize(10,10)
+		font-family: $font-base
+		
+.futuresOrders
+	background-color: $grey-form
+	padding: rems(6) rems(18) rems(16)
+	border-top: 1px solid $line-main
+	overflow: hidden
+	
+	@include media-breakpoint-up(md)
+		border-radius: 14px
+		border: 1px solid $line-main
+		height: rems(300)
+	
+	&__head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-bottom: rems(20)
+
+	&__head-left
+		margin-right: rems(20)
+		min-width: 0
+
+	&__tabs
+		display: flex
+		overflow-x: auto
+		min-width: 0
+		width: 100%
+		overflow: auto
+		-ms-overflow-style: none
+		scrollbar-width: none
+
+		&::-webkit-scrollbar
+			width: 0
+			height: 0
+			
+	&__tab-item
+		& + &
+			margin-left: rems(20)
+
+	&__tab
+		padding: rems(10) 0
+		border-bottom: 1px solid transparent
+		color: $text-second
+		font-weight: 400
+		@include fontSize(14,17)
+		white-space: nowrap
+		
+		&--active
+			color: $white
+			border-bottom: 1px solid $white
+			
+			
+	&__head-right
+		.bo-checkbox2-label
+			white-space: nowrap
+
+	&__table
+		
+.futuresOrdersTable
+
+	&__notFound
+		padding: rems(12) 0
+
+	&__tag + &__tag
+		margin-left: rems(4)
+		
+.MuiTableContainer-root.futuresOrdersTable
+	//.MuiTableBody-root
+	//	overflow-y: auto
+	scrollbar-width: thin
+	scrollbar-color: $line-second $black-back-field
+	scrollbar-gutter: stable both-edges
+	width: auto
+	padding-right: 12px
+	margin-right: -12px
+	
+	&::-webkit-scrollbar,
+	&::-webkit-scrollbar-thumb,
+	&::-webkit-scrollbar-track
+		border-radius: 12px
+	
+	.futuresOrdersTable
+	
+		&__head-text
+			color: $text-second
+			font-weight: 500
+			@include fontSize(12,21)
+	
+		&__head-btn
+			@include fontSize(12,21)
+			font-weight: 500
+			color: $orange
+	
+		&__body
+	
+		&__time
+			color: $text-second
+			font-weight: 500
+			@include fontSize(14,18)
+	
+		&__value
+			font-weight: 500
+			color: $white
+			@include fontSize(14,24)	
+			
+			&--red
+				color: $red2
+				
+			&--green
+				color: $green2
+	
+		&__value + &__tag
+			margin-left: rems(10)
+				
+		&__tag
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			padding: 0 rems(6)
+			@include fontSize(12,20)
+			border-radius: 4px
+			background-color: $black-back-field
+	
+			&--red
+				background-color: rgba($red2, 0.20)
+				color: $red
+				
+		&__button
+			@include fontSize(14,24)
+			font-weight: 500
+			color: $orange
+			
+			&--gray
+				color: $text-second
+			
+		&__scrollable
+			overflow-x: auto
+			display: flex
+			align-items: center
+			flex: 1
+			
+		&__v-indicator
+			padding-left: rems(10)
+			position: relative
+			
+			&:before
+				position: absolute
+				content: ''
+				height: rems(14)
+				width: 3px
+				left: 0
+				top: 50%
+				transform: translateY(-50%)
+				border-radius: 4px
+				
+			&--green:before
+				background-color: $green2
+				
+			&--red:before
+				background-color: $red2
+					
+		&__symbol
+			display: flex
+	
+		&__symbol-icon
+			height: rems(34)
+			width: rems(34)
+			object-fit: contain
+			flex-shrink: 0
+			margin-right: rems(10)
+	
+		&__symbol-content
+	
+		&__symbol-content-top
+			display: flex
+			align-items: center
+	
+		&__symbol-name
+			font-weight: 500
+			color: $white
+			@include fontSize(14,24)
+	
+		&__symbol-status
+			@include fontSize(12,24)
+			font-weight: 500
+			color: $white
+			margin-left: rems(10)
+			padding-left: rems(10)
+			position: relative
+			
+			&:before
+				position: absolute
+				content: ''
+				left: 0
+				top: 50%
+				transform: translateY(-50%)
+				width: 1px
+				height: 14px
+				background-color: $line-main
+
+		&__td-fixed
+			position: sticky
+			right: rems(-12)
+			background-color: $grey-form
+			height: calc(100% - 2px) !important
+				
+	.MuiTableCell-root,
+	.MuiTableCell-root.MuiTableCell-head
+		padding: rems(18) rems(3)
+		border-color: $line-main
+		min-width: rems(70)
+		height: rems(60)
+		background-color: $grey-form
+		
+		&:first-child
+			padding-left: 0!important
+			
+		&:last-child
+			padding-right: 0!important
+			
+		&.MuiTableCell-head
+			padding: rems(9.5) rems(3) 
+			height: rems(40)
+		
+.futuresTrades
+	padding: rems(4) 0 rems(20)
+	background-color: $grey-form
+	overflow: hidden
+	overflow-y: auto
+	height: 100%
+	//height: rems(271)
+	
+	@include media-breakpoint-up(md)
+		border-radius: 14px
+		border: 1px solid $line-main
+
+	&__head
+		@include fontSize(12,15)
+		font-weight: 500
+		color: $white
+		padding: rems(10) rems(14)
+		border-bottom: 1px solid $line-main
+		display: none
+		
+		@include media-breakpoint-up(md)
+			display: block	
+
+	&__table
+		padding: rems(14) rems(14) 0
+
+	&__table-head
+		margin-bottom: rems(10)
+
+	&__table-tr
+		display: flex
+		justify-content: space-between
+		margin: 0 rems(-9)
+		
+		& + &
+			margin-top: rems(8)
+
+	&__table-td
+		padding: 0 rems(4)
+		&:nth-child(1)
+			flex: 0 1 rems(100)
+
+		&:nth-child(2)
+			flex: 0 1 rems(102)
+			text-align: right
+
+		&:nth-child(3)
+			flex: 0 1 rems(90)
+			text-align: right
+
+	&__table-body
+
+	&__table-value
+		@include fontSize(12,15)
+		font-weight: 600
+		color: $white
+
+		&--red
+			color: $red2
+
+		&--green
+			color: $green2
+
+	&__text
+		@include fontSize(12,15)
+		font-weight: 400
+		color: $text-second
+		
+.mainTabs
+	margin-top: rems(12)
+	
+	@include media-breakpoint-up(md)
+		display: none
+	
+	&__tabs
+		background-color: $grey-form	
+		display: flex
+		overflow-x: auto
+		min-width: 0
+		width: 100%
+		overflow: auto
+		-ms-overflow-style: none
+		scrollbar-width: none
+		padding: rems(2) rems(14)
+		border-bottom: 1px solid $line-main
+
+		&::-webkit-scrollbar
+			width: 0
+			height: 0
+
+	&__tab-item
+		& + &
+			margin-left: rems(20)
+
+	&__tab
+		padding: rems(10) 0
+		border-bottom: 1px solid transparent
+		color: $text-second
+		font-weight: 400
+		@include fontSize(14,17)
+		white-space: nowrap
+
+		&--active
+			color: $white
+			border-bottom: 1px solid $white
+			
+.future-tab
+	display: none
+	@include media-breakpoint-up(md)
+		display: block
+	
+	&--active
+		display: block
+		

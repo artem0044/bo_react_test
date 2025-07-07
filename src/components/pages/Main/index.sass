@@ -1,0 +1,710 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.section-title
+	font-weight: 600
+	@include fontSize(30,42)
+	color: $black
+
+	@include media-breakpoint-up(lg)
+		@include fontSize(45,63)
+
+.wrapper
+	margin: 0 auto
+	padding: 80px 12px 12px 12px
+	max-width: calc(368px + 24px)
+
+	@include media-breakpoint-up(lg)
+		max-width: calc(758px + 24px)
+
+	@include media-breakpoint-up(b1400)
+		max-width: calc(1146px + 24px)
+
+.hero
+	position: relative
+	background-color: #F7F7F8
+	z-index: 1
+	overflow: hidden
+	border-bottom-left-radius: 12px
+	border-bottom-right-radius: 12px
+
+	&__wrapper
+		display: flex
+		flex: 1
+		flex-direction: column
+		align-items: center
+
+		@include media-breakpoint-up(lg)
+			align-items: flex-start
+
+		@include media-breakpoint-up(xl)	
+			padding-bottom: 252px
+
+	&__content
+		width: 100%
+		flex: 1
+
+		@include media-breakpoint-up(lg)
+			max-width: 794px
+
+	&__title
+		max-width: rems(824)
+		font-weight: 700
+		@include fontSize(32,36)
+		color: #1C1C21
+		margin-bottom: rems(32)
+		text-align: center
+		@include media-breakpoint-up(lg)
+			@include fontSize(64,67)
+			text-align: left
+
+	&__subtitle
+		font-weight: 500
+		@include fontSize(16,24)
+		color: #4A4A5A
+		text-align: center
+
+		@include media-breakpoint-up(lg)
+			@include fontSize(20,28)
+			max-width: 530px
+			text-align: left
+
+	&__btn
+		margin-top: rems(32)
+
+	&__bg-main
+		position: absolute
+		top: -25%
+		z-index: -1
+		display: block
+		width: 100vw
+		height: 1050px
+
+		@include media-breakpoint-up(xl)
+			height: 1300px
+
+	&__schedule
+		position: static
+		width: 100%
+		
+		border-radius: 8px
+		@include media-breakpoint-up(xl)
+			//margin: 80px auto 100px
+			position: absolute
+			z-index: -1
+			right: 0
+			bottom: 0
+			max-width: 630px
+			max-height: 615px
+		img
+			width: 100%
+			height: 100%
+		
+
+	&__bg
+		position: absolute
+		left: 50%
+		top: 25%
+		transform: translateX(-50%)
+		z-index: -2
+		width: 100%
+		max-width: rems(1149)
+		display: none
+
+		@include media-breakpoint-up(lg)
+			display: block
+
+		&-mobile
+			position: absolute
+			bottom: 0
+			width: 100%
+			max-height: 313px
+			object-fit: contain
+			object-position: left
+
+			display: block
+
+			@include media-breakpoint-up(lg)
+				display: none
+
+.condition
+	position: relative
+	background-color: rgba(28, 28, 33, 1)
+	z-index: 0
+	padding-bottom: rems(160)
+
+	.wrapper
+		padding-top: rems(80)
+		@include media-breakpoint-up(md)
+			padding-top: rems(140)
+	
+	&__bg
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: rems(388)
+		object-fit: cover
+		z-index: -1
+
+	&__header
+		margin-bottom: rems(20)
+
+		@include media-breakpoint-up(md)
+			margin-bottom: rems(45)
+
+	&__title
+		max-width: rems(600)
+		line-height: 110%
+		text-align: center
+		margin: 0 auto
+		margin-bottom: rems(82)
+		color: #ffff
+
+.condition-card
+	transform-origin: bottom
+	transform: scaleY(0)
+	animation: growUp 0.6s ease-out forwards
+	animation-delay: 0.2s // або різну для кожної
+	transition: transform 0.6s ease-out
+	padding: rems(30)
+	border-radius: 8px
+	border: 1px solid var(--Stroke-dark-gray, rgba(49, 49, 57, 1))
+	background-color: #1C1C21
+	height: 100%   
+
+	@include media-breakpoint-up(lg)
+		height: 100%
+
+	&--bg
+		background-image: url("/assets/images/bg/bg-card.png")
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+
+	&__text
+		color: #D8D9DF
+		@include fontSize(16,20)
+
+		@include media-breakpoint-up(lg)
+			@include fontSize(20,28)
+
+	&__title
+		font-weight: 700
+		color: #ffff
+		@include fontSize(32,42)
+		margin-bottom: rems(15)
+
+		@include media-breakpoint-up(xl)
+			@include fontSize(64,63)
+			margin-bottom: rems(30)
+
+@keyframes growUp
+	to
+		transform: scaleY(1)
+
+.feature-card-container
+	display: flex
+	flex-direction: column
+	margin-top: rems(80)
+	gap: rems(80)
+	@include media-breakpoint-up(md)
+		margni-top: rems(200)
+		gap: rems(100)
+
+.feature-card
+	position: relative
+	box-sizing: border-box
+	display: flex
+	padding: rems(24)
+	background-image: url("../../../assets/images/main/bg-feature-card.png")
+	background-position: center
+	background-size: cover
+	background-color: rgba(28, 28, 33, 0.6)
+	gap: rems(40)
+	margin: 0 auto
+	flex-wrap: wrap
+	flex-direction: column
+	z-index: 1
+
+	&::before 
+		content: ''
+		position: absolute
+		inset: 0
+		background: rgba(28, 28, 33, 0.6)
+		z-index: -1
+
+	
+	@include media-breakpoint-up(md)
+		padding: rems(32) rems(48)
+
+	@include media-breakpoint-up(b1400)
+		max-width: 1146px
+
+	@include media-breakpoint-up(lg)
+		flex-direction: row
+
+	&__bg-blur
+		position: absolute
+		top: 5%
+		left: 90%
+		width: 110px          
+		height: 110px       
+		background: #707287
+		filter: blur(100px)
+		z-index: -2
+		pointer-events: none
+
+	&__imgGroup
+		display: flex
+		gap: rems(10)
+		margin-bottom: rems(14)
+
+	&__description
+		display: flex
+		flex-direction: column
+		flex: 1
+		padding: rems(22) 0
+
+	&__title
+		@include fontSize(28,34)
+		font-weight: 700
+		margin-bottom: rems(36)
+
+		@include media-breakpoint-up(xl)
+			@include fontSize(48,54)
+	&__text
+		position: relative
+		color: #D8D9DF
+		@include fontSize(16,24)
+		display: block
+		padding: 16px 0
+		
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 1px
+			background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent)
+
+		&:first-child::before
+			display: none
+
+		@include media-breakpoint-up(xl)
+			@include fontSize(20,28)
+
+	&__shedule-container
+		height: rems(400)
+
+		img
+			height: 100%
+			border-radius: rems(12)
+
+		@include media-breakpoint-up(lg)
+			flex: 1
+			height: auto
+
+.feedback-container
+	display: flex
+	gap: rems(20)
+	margin-bottom: 20px
+	overflow-x: hidden
+	scrollBehavior: "smooth",
+
+.feedback-card
+	position: relative
+	display: flex
+	flex-shrink: 0
+	flex-direction: column
+	gap: rems(16)
+	border-radius: rems(16)
+	background-color: #ffff
+	width: 100%
+	flex: 1
+	border-radius: rems(16)
+	padding: rems(36)
+	background-clip: padding-box
+
+	@include media-breakpoint-up(sm)
+		max-width: rems(358)
+
+	@include media-breakpoint-up(b1400)
+		max-width: rems(472)
+		
+	
+	&::before
+		content: ""
+		position: absolute
+		inset: 0
+		border-radius: rems(16)
+		padding: rems(1.4)
+		background: linear-gradient(73.39deg, #FF6C22 0.19%, #EAEAEA 20.33%, #EAEAEA 99.81%)
+		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+		-webkit-mask-composite: destination-out
+		mask-composite: exclude
+		pointer-events: none
+		z-index: 1
+	
+	&__user-info
+		display: flex
+		img
+			width: rems(52)
+			height: rems(52)
+
+	
+	&__text
+		color: #1C1C21
+		font-weight: 400
+		text-transform: uppercase
+		@include fontSize(16,27)
+		@include media-breakpoint-up(md)
+			@include fontSize(24,26)
+
+	&__user-decscription-container
+		gap: rems(16)
+
+	&__user-decscription
+		font-weight: 400
+		color: #707287
+		@include fontSize(18,25)
+		@include media-breakpoint-up(md)
+				@include fontSize(14,20)
+		&--bold
+			font-weight: 700
+			color: #1C1C21
+			@include fontSize(18,21)
+			@include media-breakpoint-up(md)
+				@include fontSize(18,21)
+			
+.step-card-container
+	padding-top: 60px
+	display: flex
+	align-items: center
+	justify-content: space-between
+	flex-direction: column
+	
+	@include media-breakpoint-up(lg)
+		flex-direction: row
+		padding-top: 40px
+
+	&__arrow
+		width: rems(32)
+		height: rems(32)
+		background-position: center
+		background-repeat: no-repeat
+		transform: rotate(90deg)
+		margin: rems(44) 0
+
+		@include media-breakpoint-up(lg) 
+			transform: rotate(0deg)
+
+.step-card
+	display: flex
+	flex-direction: column
+	align-items: center
+	max-width: rems(308)
+
+	img
+		width: 120px
+		height: 120px
+		@include media-breakpoint-up(md)
+			width: auto
+			height: auto
+
+	&__title
+		font-weight: 700
+		font-size: rems(20)
+		color: #1C1C21
+		@include fontSize(20,24)
+		text-align: center
+		@include media-breakpoint-up(md)
+			@include fontSize(28,32)
+
+	&__text
+		font-weight: 400
+		@include fontSize(16,25)
+		color: #707287
+		text-align: center
+		@include media-breakpoint-up(md)
+			@include fontSize(20,28)
+
+.start-action-container
+	margin-top: rems(160)
+	display: flex
+	justify-items: center
+	align-items: center
+	flex-direction: column
+	gap: rems(32)
+	margin-top: rems(64)
+
+	&__title
+		weight: 700
+		@include fontSize(20,28)
+
+		@include media-breakpoint-up(lg)
+			@include fontSize(28,33)
+
+.reviews-registration-section
+	position: relative
+	background-color: #F7F7F8
+	padding-bottom: rems(80)
+	z-index: 2
+	border-radius: 12px
+
+	@include media-breakpoint-up(md)
+		padding-bottom: rems(140)
+
+	&__bg-logo
+		position: absolute
+		top: 0
+		right: 0
+		z-index: -1
+	
+	.btn-centered 
+		display: block      
+		margin: rems(64) auto 0 auto
+		width: fit-content  
+
+	.wrapper
+		padding-top: 80px
+		@include media-breakpoint-up(md)
+			padding-top: rems(140)
+
+	.text-container
+		display: flex
+		flex-direction: column
+		gap: rems(16)
+
+	&__title
+		font-weight: 700
+		text-align: center
+		color: #1C1C21
+		@include fontSize(32,35)
+		@include media-breakpoint-up(lg)
+			@include fontSize(64,66)
+
+	&__text
+		font-weight: 400
+		text-align: center
+		color: #4A4A5A
+		@include fontSize(16,23)
+
+		@include media-breakpoint-up(md)
+			@include fontSize(20,27)
+
+.slider-container
+	@include media-breakpoint-up(b1400)
+		padding-left: rems(96)
+
+
+.slider-button-container
+	display: flex
+	gap: rems(40)
+	margin-top: rems(40)
+
+.mySwiper
+	display: flex
+	flex-direction: column
+	align-items: center
+	margin-top: rems(62)
+	padding: 0 rems(5)
+	
+.swiper-slide
+	width: fit-content
+
+.why
+	position: relative
+	padding-bottom: rems(300)
+
+	@include media-breakpoint-up(lg)
+		padding-bottom: rems(100)
+
+	@include media-breakpoint-up(b1400)
+		padding-bottom: rems(140)
+
+	@media (max-width: map-get($grid-breakpoints, lg))
+		padding-bottom: rems(100)
+
+	&:before
+		position: absolute
+		content: ''
+		left: -12%
+		top: -21%
+		width: 1101px
+		height: 724px
+		z-index: -1
+		display: none
+
+		@include media-breakpoint-up(lg)
+			display: block
+
+		@include media-breakpoint-up(b1400)
+			left: 26px
+
+	&__header
+		margin-bottom: rems(22)
+
+		@include media-breakpoint-up(lg)
+			margin-bottom: rems(35)
+
+		@include media-breakpoint-up(b1400)
+			margin-bottom: rems(45)
+
+	&__title
+		text-align: center
+
+.why-block
+	height: 390px
+
+	img
+		height: 100%
+		width: 100%
+		border-radius: 20px
+
+	@media (max-width: map-get($grid-breakpoints, b1400))
+		height: 280px
+		img
+			border-radius: 12px
+
+	@media (max-width: map-get($grid-breakpoints, lg))
+		height: 140px
+		img
+			border-radius: 8px
+
+.why-card
+	min-height: 400px
+	padding: rems(35) rems(45)
+	border-radius: 22px
+	position: relative
+	overflow: hidden
+
+	&:not(first-child)
+		height: 400px
+
+	&__wrap
+		position: relative
+		z-index: 1
+		max-width: 500px
+		height: 100%
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: start
+
+	&__flex
+		position: relative
+		z-index: 1
+		max-width: 500px
+		height: 100%
+		display: flex
+		flex-direction: column
+		justify-content: flex-start
+		align-items: start
+
+		&__item-5
+			max-width: 400px
+
+		&__item-6
+			justify-content: flex-end
+
+	&__icon
+		margin-bottom: rems(20)
+
+	&__title
+		font-family: $font-additional
+		letter-spacing: rems(-3.2)
+		font-weight: 700
+		@include fontSize(30,39)
+		color: $white
+		margin-bottom: rems(20)
+
+		@include media-breakpoint-up(b1400)
+			@include fontSize(64, 64)
+
+	&__orange
+		color: $dark-orange
+
+	&__text
+		font-family: $font-additional
+		font-weight: 700
+		color: $black
+		@include fontSize(14, 21)
+		text-transform: uppercase
+
+.item_1
+	min-height: 363px
+
+	&::before
+		@include bg-image("/assets/images/why-images/item-1-bg.png")
+
+.item_2
+	border: 1px solid #DEDEDE
+	&::before
+		@include bg-image("/assets/images/why-images/item-2-bg.png")
+
+.item_3
+	border: 1px solid #DEDEDE
+	&::before
+		@include bg-image('/assets/images/why-images/xs-items-bg.png')
+
+	&::after
+		@include bg-image('/assets/images/why-images/rocket.svg')
+
+.item_4
+	border: 1px solid #DEDEDE
+	&::before
+		@include bg-image('/assets/images/why-images/item-4-bg.png')
+
+.item_5
+	border: 1px solid #DEDEDE
+	&::before
+		@include bg-image('/assets/images/why-images/item-5-bg.png')
+
+.item_6
+	border: 1px solid #DEDEDE
+	&::before
+		@include bg-image("/assets/images/why-images/item-6-bg.png")
+
+.item_7
+	border: 1px solid #DEDEDE
+	&::after
+		@include bg-image("/assets/images/why-images/item-7-bg.png")
+
+.offer
+	padding-bottom: rems(108)
+	position: relative
+	background: linear-gradient(180deg, rgba(255, 75, 0, 0.00) 0%, #FF4B00 90%)
+
+	&__wrapper
+		padding-top: rems(94)
+
+	&__left
+		display: flex
+		flex-direction: column
+		align-items: center
+
+	&__title
+		font-family: $font-additional
+		text-transform: uppercase
+		color: $white
+		font-weight: 700
+		@include fontSize(65, 65)
+		margin-bottom: rems(29)
+		text-align: center
+
+	&__text
+		font-family: $font-additional
+		font-weight: 500
+		@include fontSize(16,22)
+		color: $white
+
+		@include media-breakpoint-up(b1400)
+			@include fontSize(16, 24)
+
+	&__btn
+		margin-top: rems(29)
+		@include fontSize(14, 20)
+

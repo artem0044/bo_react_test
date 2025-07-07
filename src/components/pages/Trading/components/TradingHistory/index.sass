@@ -1,0 +1,233 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.tradingHistory
+	background: #121212
+	padding: rems(20) 0
+	transition: 0.3s ease-in
+	z-index: 10
+	position: fixed
+	top: rems(78)
+	height: calc(100% - rems(282))
+	overflow: hidden
+	transform: translateY(100%)
+	width: 100%
+
+	@include media-breakpoint-up(md)
+		width: 0
+		position: unset
+		height: auto
+		right: rems(212)
+		top: auto
+		max-width: rems(390)
+		z-index: 1
+		transition: 0.3s
+		transform: unset
+
+	&.entered,
+	&.entering
+		transform: translateY(0)
+		@include media-breakpoint-up(md)
+			width: 100%
+
+	&__scroll
+		overflow-y: auto
+		height: 100%
+		-ms-overflow-style: none
+		scrollbar-width: none
+
+		&::-webkit-scrollbar
+			width: 0
+			height: 0
+
+	&__wrapper
+		padding: 0 rems(10)
+		display: flex
+		flex-direction: column
+
+		@include media-breakpoint-up(md)
+			height: 100%
+
+	&__header
+		display: flex
+		align-items: center
+		padding-bottom: rems(20)
+		position: sticky
+		background: #121212
+		z-index: 1
+		top: 0
+
+	&__sort-btn
+		padding: rems(5) rems(24)
+		background: rgba(35, 35, 35, 0.7)
+		backdrop-filter: blur(6px)
+		border: 1.5px solid transparent
+		border-radius: 4px
+		color: $white
+		font-weight: 500
+		@include fontSize(14,25)
+
+		& + &
+			margin-left: rems(10)
+
+		&.active
+			border: 1.5px solid #FF6C22
+
+	&__list
+		height: 100%
+
+	&__list > .historyDayItem:first-child
+		margin-top: 0
+
+	&__item
+		& + &
+			margin-top: rems(20)
+
+	&__empty
+		height: 100%
+		width: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		
+	&__more
+		width: 100%
+
+.bid-enter
+	opacity: 0
+	transform: translateX(100%)
+
+.bid-exit
+	opacity: 1
+	transform: translateY(0)
+
+.bid-enter-active
+	opacity: 1
+	transform: translateX(0)
+
+.bid-exit-active
+	opacity: 0
+	transform: translateX(-100%)
+
+.bid-exit-active
+	transition: 1300ms
+
+.historyOfDay
+	&__btn
+		background: rgba(35, 35, 35, 0.85)
+		backdrop-filter: blur(6px)
+		border-radius: 4px
+		width: 100%
+		padding: rems(5) rems(20)
+		color: $white
+		font-weight: 500
+		@include fontSize(12,22)
+		display: flex
+		align-items: center
+		justify-content: center
+
+
+	&__day
+
+	&__list
+
+	&__item
+
+	&__icon
+		margin-left: rems(10)
+		height: rems(16)
+		width: rems(16)
+
+		&--active
+			transform: rotate(180deg)
+
+.historyDayItem
+	background: rgba(35, 35, 35, 0.85)
+	backdrop-filter: blur(6px)
+	border-radius: 4px
+	margin-top: rems(10)
+
+	&__btn
+		padding: rems(15) rems(20)
+		display: flex
+		align-items: flex-end
+		flex-wrap: wrap
+		width: 100%
+		
+		@include media-breakpoint-up(md)
+			flex-wrap: nowrap
+
+
+	&__icon
+		margin-right: rems(10)
+		margin-bottom: rems(8)
+		flex-shrink: 0
+
+	&__info
+		width: 100%
+
+		&--1
+			flex: 1 0 rems(90)
+
+		&--2
+			flex: 1 0 rems(100)
+
+		&--3
+			flex: 1 0 rems(50)
+			display: flex
+			flex-direction: column
+			align-items: flex-end
+			margin-left: rems(4)
+
+	&__text
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+		text-align: left
+
+		&--center
+			text-align: center
+
+		&--green
+			color: #00AD64!important
+			font-weight: 800
+
+		&--red
+			color: #FE3D31!important
+			font-weight: 800
+
+		&--nowrap
+			white-space: nowrap
+
+	&__arrow
+		margin: 0 0 rems(18) rems(4)
+		transition: 0.3s
+		flex-shrink: 0
+
+		@include media-breakpoint-up(sm)
+			margin: 0 rems(15) rems(18)
+
+		&-active
+			transform: rotate(180deg)
+
+
+	&__title
+		font-weight: 500
+		color: rgba($white,0.5)
+		@include fontSize(14,25)
+		margin-right: rems(10)
+
+		&--left
+			margin-right: 0
+			margin-left: auto
+		
+	&__list
+
+	&__item
+		display: flex
+		flex-wrap: wrap
+
+	&__content
+		padding: rems(11) rems(20) rems(15)

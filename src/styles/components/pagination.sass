@@ -1,0 +1,32 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.pagination
+	display: flex
+	justify-content: flex-end
+	margin-top: rems(16)
+
+	@include media-breakpoint-up(md)
+		margin-top: 0
+		position: absolute
+		bottom: 20px
+		right: 30px
+
+	.MuiButtonBase-root,
+	.MuiPaginationItem-root
+		background-color: #1C1C1C
+		border-radius: 4px
+		color: $white
+		font-weight: 500
+		@include fontSize(14,23)
+		border: 2px solid transparent
+		height: rems(32)
+		width: rems(32)
+
+		&:hover
+			background-color: #1C1C1C
+
+		&.Mui-selected
+			background-color: #1C1C1C
+			border: 2px solid #4F4F4F

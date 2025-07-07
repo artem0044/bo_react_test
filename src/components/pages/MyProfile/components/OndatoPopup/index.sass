@@ -1,0 +1,39 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+.ondatoPopup
+	padding: rems(80) rems(32) rems(32)
+	background: $grey-form
+	border-radius: 12px
+	text-align: center
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	height: 100%
+
+	@include media-breakpoint-up(md)
+		height: auto
+		margin: auto rems(12)
+		min-width: rems(320)
+
+
+	&__pic
+		margin-bottom: rems(8)
+		display: block
+
+	&__title
+		font-weight: 600
+		@include fontSize(32,45)
+		color: $white
+		margin-bottom: rems(8)
+
+	&__text
+		font-weight: 400
+		@include fontSize(14,25)
+		color: $white
+
+	&__btn
+		width: 100%
+		margin-top: rems(32)

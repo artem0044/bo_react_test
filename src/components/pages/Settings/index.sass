@@ -1,0 +1,39 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+.settings
+	&__title
+		font-weight: 600
+		color: $white
+		@include fontSize(26,42)
+
+		@include media-breakpoint-up(md)
+			@include fontSize(32,51)
+
+	&__text
+		color: $white
+		@include fontSize(14,25)
+		font-weight: 400
+
+	&__header
+		margin-bottom: rems(24)
+
+
+	&__btn
+		margin-top: rems(24)
+		width: 100%
+
+		@include media-breakpoint-up(b680)
+			width: auto
+
+	&__link
+		color: $orange
+		font-weight: 500
+		@include fontSize(12,22)
+		margin-bottom: rems(1)
+		display: flex
+		align-items: center
+
+		&-icon
+			margin-right: rems(8)

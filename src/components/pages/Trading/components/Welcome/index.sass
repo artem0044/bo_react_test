@@ -1,0 +1,52 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.welcome
+	padding: rems(78) rems(30) rems(30)
+	background-color: $grey-form
+	border: 2px solid rgba(112, 112, 112, 0.5)
+	border-radius: 8px
+	max-width: 547px
+	margin: 0 rems(12)
+
+	&__title
+		font-weight: 600
+		@include fontSize(23,37)
+		color: $white
+		margin-bottom: rems(97)
+
+	&__list
+
+	&__item
+		& + &
+			margin-top: rems(24)
+
+.welcome-btn
+	padding: rems(13.5) rems(16)
+	background: #1C1C1C
+	border-radius: 4px
+	text-align: left
+	display: block
+
+	&__title
+		font-weight: 600
+		@include fontSize(23,41)
+		color: $white
+		margin-bottom: rems(6)
+
+	&__text
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+
+	&__btn-arrow
+		margin-top: rems(6)
+		display: flex
+		align-items: center
+		color: $orange
+		font-weight: 600
+		@include fontSize(14,25)
+
+		img,svg
+			margin-left: rems(8)

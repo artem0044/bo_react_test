@@ -1,0 +1,80 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+.top-balance
+	border-radius: 8px
+	margin-bottom: rems(36)
+	max-width: 814px
+
+	@include media-breakpoint-up(b680)
+		padding: rems(24)
+
+	@include media-breakpoint-up(md)
+		padding: rems(30)
+		background: $grey-form
+
+	&__wrapper
+
+		@include media-breakpoint-up(md)
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+	&__left
+		margin-right: rems(16)
+
+	&__link
+		color: $orange
+		font-weight: 500
+		@include fontSize(12,22)
+		margin-bottom: rems(13)
+		display: flex
+		align-items: center
+
+		&-icon
+			margin-right: rems(8)
+
+	&__title
+		font-weight: 600
+		@include fontSize(26,32)
+		color: $white
+
+		@include media-breakpoint-up(md)
+			@include fontSize(32,44)
+
+	&__right
+		display: flex
+		align-items: center
+		margin-top: rems(24)
+		@include media-breakpoint-up(md)
+			margin-top: 0
+
+	&__balance
+		font-weight: 600
+		@include fontSize(22,30)
+		color: $white
+
+		@include media-breakpoint-up(md)
+			@include fontSize(24,33)
+
+	&__trade-btn
+		margin-left: rems(15)
+
+	&__list-btn
+		margin-top: rems(20)
+
+		@include media-breakpoint-up(b680)
+			display: flex
+			align-items: center
+
+	&__btn
+		width: 100%
+		@include media-breakpoint-up(b680)
+			width: auto
+
+		& + &
+			margin-top: rems(15)
+			@include media-breakpoint-up(b680)
+				margin-left: rems(15)
+				margin-top: 0

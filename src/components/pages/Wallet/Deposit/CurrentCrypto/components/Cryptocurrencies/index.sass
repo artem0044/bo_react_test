@@ -1,0 +1,80 @@
+@import '../../../../../../../styles/mixins'
+@import '../../../../../../../styles/variables'
+@import '../../../../../../../styles/functions'
+
+
+.crypto-current
+	&__title
+		font-weight: 600
+		@include fontSize(14,24)
+		color: $white
+		letter-spacing: -0.011em
+		margin-bottom: rems(15)
+
+	&__section
+		& + &
+			margin-top: rems(24)
+
+	&__btns
+		display: flex
+		align-items: center
+		margin-top: rems(25)
+
+	&__btn
+		width: 100%
+		@include media-breakpoint-up(b680)
+			width: auto
+
+		& + &
+			margin-left: rems(10)
+
+.crypto-inp-counter
+	&__title
+		font-weight: 500
+		@include fontSize(14,25)
+		margin-bottom: rems(4)
+		color: $white
+
+	&__inp-wrap
+		margin-bottom: rems(10)
+
+	&__inp
+		padding: rems(11.5) rems(16)
+		background: $dark-grey2
+		border-radius: 4px
+		width: 100%
+		display: flex
+		align-items: center
+
+	&__value
+		font-weight: 500
+		@include fontSize(16,29)
+		color: $white
+
+		& + &
+			margin-left: rems(15)
+
+		&--addition
+			padding: 0 rems(8)
+			background: rgba(49, 67, 59, 0.95)
+			border: 2px solid #239766
+			border-radius: 4px
+
+	&__list
+		display: flex
+		align-items: center
+
+	&__item
+		width: 100%
+		& + &
+			margin-left: rems(10)
+
+	&__btn
+		padding: rems(5) rems(8)
+		width: 100%
+		display: block
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+		background: $dark-grey2
+		border-radius: 4px

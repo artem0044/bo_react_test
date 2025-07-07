@@ -1,0 +1,142 @@
+.bo-calendar
+	&.MuiFormControl-root
+		width: 100%
+
+	.MuiInputBase-root
+		background-color: $dark-grey2
+		border-radius: 4px
+		padding: rems(11.5) rems(16)
+		font-weight: 500
+		@include fontSize(16,29)
+		width: 100%
+		color: $white
+		border: 2px solid $dark-grey2
+		height: 56px
+
+		&::placeholder
+			color: $placeholder
+
+		&:focus
+			outline: none
+
+	.MuiInputBase-input
+		padding: 0
+
+	.Mui-focused
+		border: 2px solid transparent
+		outline: none
+
+	.MuiOutlinedInput-root
+		outline: none
+		border: none
+
+	.MuiOutlinedInput-notchedOutline
+		border: none
+
+	.MuiSvgIcon-root
+		fill: $white
+
+.bo-calendar-popper
+	&.MuiPickersPopper-root
+		margin-top: rems(10) !important
+
+	.MuiPaper-root
+		background-color: $dark-grey
+
+	&.MuiDialog-paper
+		background-color: $dark-grey
+		min-width: 280px!important
+
+	.MuiDialogContent-root
+		background-color: $dark-grey
+		box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.25)
+
+		.MuiDateCalendar-root
+			box-shadow: none
+			background-color: transparent
+
+	.MuiPickersToolbar-root
+		display: none
+
+	.MuiDateCalendar-root
+		margin: 0
+		background: #232323
+		box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.25)
+		border-radius: 4px
+		color: $white
+		width: rems(285)
+
+	.MuiYearCalendar-root
+		width: rems(285)
+
+	.MuiPickersDay-root
+		color: $white
+		font-weight: 400
+		@include fontSize(14,25)
+		height: rems(25)
+		width: rems(25)
+		margin: 0 rems(3)
+
+		.MuiTouchRipple-root
+			display: none
+
+		&.Mui-selected,&:focus
+			background-color: $orange!important
+			border-radius: 4px
+			padding: 0 rems(7)
+			color: $black
+
+			&:hover
+				background-color: $orange
+
+	.MuiDayCalendar-weekContainer
+		margin: rems(5) 0
+
+	.MuiPickersSlideTransition-root
+		min-height: 207px
+
+	.MuiTypography-root
+		color: $orange
+		font-weight: 400
+		@include fontSize(14,25)
+		height: rems(25)
+		width: rems(25)
+		margin: 0 rems(3)
+
+
+	.MuiDayCalendar-header
+		margin-bottom: rems(5)
+
+	.MuiPickersCalendarHeader-root
+		margin-bottom: rems(15)
+		padding: 0 rems(32)
+
+	.MuiPickersFadeTransitionGroup-root
+		color: $white
+		font-weight: 400
+		@include fontSize(14,25)
+
+	.MuiPickersYear-root
+		.MuiPickersYear-yearButton
+			color: $white
+			font-weight: 400
+			@include fontSize(14,25)
+			height: rems(36)
+			width: rems(50)
+			border-radius: 4px
+
+		.Mui-selected
+			background-color: $orange!important
+			color: $black
+
+			&:hover
+				background-color: $orange
+
+	.MuiPickersDay-today:not(.Mui-selected)
+		border: 1px solid $orange
+		border-radius: 4px
+
+	.MuiButton-text
+		color: $orange
+		font-weight: 400
+		@include fontSize(14,25)

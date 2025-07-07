@@ -1,0 +1,28 @@
+@import "functions"
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints)
+	$min: map-get($breakpoints, $name)
+	@return if($min != 0, $min, null)
+
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints)
+	$min: breakpoint-min($name, $breakpoints)
+	@if $min
+		@media (min-width: $min)
+			@content
+	@else
+		@content
+
+@mixin fontSize($size, $lHeight)
+	font-size: rems($size)
+	line-height: rems($lHeight)
+
+@mixin bg-image($url)
+	content: ""
+	background-image: url($url)
+	background-size: cover
+	width: 100%
+	height: 100%
+	position: absolute
+	display: block
+	inset: 0 0 0 0

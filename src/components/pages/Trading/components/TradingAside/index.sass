@@ -1,0 +1,371 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.trading-aside
+	background-color: $black
+	width: 100%
+	position: relative
+	z-index: 10
+	height: rems(204)
+
+	@include media-breakpoint-up(md)
+		height: calc(100vh - 90px)
+		margin-bottom: rems(12)
+		padding-right: rems(12)
+		max-width: rems(228)
+
+	&__wrap
+		padding: rems(24) rems(20)
+		height: 100%
+		background-color: $grey-form
+		position: relative
+
+		@include media-breakpoint-up(md)
+			padding: rems(18)
+			background-color: $dark-grey
+			border-radius: 8px
+
+	&__scroll
+		height: 100%
+		-ms-overflow-style: none
+		scrollbar-width: none
+
+		&::-webkit-scrollbar
+			width: 0
+			height: 0
+
+		@include media-breakpoint-up(md)
+			overflow-y: auto
+
+	&__section
+		& + &
+			margin-top: rems(10)
+
+			@include media-breakpoint-up(md)
+				margin-top: rems(12)
+
+		&--sticky
+			@include media-breakpoint-up(md)
+				position: sticky
+				bottom: 0
+				background-color: $dark-grey
+
+	&__open-history
+		display: flex
+		align-items: center
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+		padding: rems(5.5) rems(15)
+		width: 100%
+		background: #282828
+		backdrop-filter: blur(6px)
+		border-radius: 4px
+		margin-bottom: rems(15)
+		white-space: nowrap
+		transition: 0.3s ease
+
+		&:hover
+			background: $line-main
+
+	&__open-arrows
+		margin-right: rems(10)
+		height: rems(24)
+		width: rems(24)
+
+
+// time
+.trading-aside-time
+	background: #282828
+	border-radius: 4px
+
+	&__btns
+		padding: rems(20) rems(12) rems(12)
+
+
+	&__btn
+		background: #383838
+		border: 1px solid transparent
+		border-radius: 4px
+		padding: rems(4)
+		width: rems(42)
+		text-align: center
+		color: $white
+		@include fontSize(14,25)
+		font-weight: 400
+
+		&.active
+			border: 1px solid $orange
+
+
+.select-trade-mobile
+	position: relative
+	width: 100%
+
+	&--focused
+		.select-trade-mobile__open-btn
+			background-color: #684201
+			border: 1px solid $orange
+	
+	&__content
+
+		&.active
+			.select-trade-mobile
+				&__close
+					display: block
+
+				&__bg
+					opacity: 1
+					visibility: visible
+
+				&__content-wrap
+					opacity: 1
+					transform: scale(1)
+					visibility: visible
+
+	&__bg
+		position: fixed
+		backdrop-filter: blur(4px)
+		background: rgba(38, 36, 22, 0.14)
+		right: 0
+		left: 0
+		top: 0
+		bottom: 0
+		z-index: -1
+		opacity: 0
+		visibility: hidden
+		transition: 0.3s
+
+	&__close
+		position: fixed
+		right: 0
+		left: 0
+		top: 0
+		bottom: 0
+		z-index: 2
+		display: none
+
+	&__content-wrap
+		z-index: 10
+		position: absolute
+		width: 100%
+		padding: rems(12)
+		background: #282828
+		box-shadow: 0px -16px 50px rgba(0, 0, 0, 0.25)
+		border-radius: 4px
+		bottom: calc(100% + rems(10))
+		opacity: 0
+		transform: scale(0.8)
+		transition: 0.3s ease
+		visibility: hidden
+
+
+	&__btns
+
+	&__btn
+		border-radius: 4px
+		padding: rems(7) rems(10)
+		text-align: left
+		font-weight: 500
+		@include fontSize(14,25)
+		color: $white
+		transition: 0.3s
+		background-color: #383838
+		width: 100%
+
+		&.active
+			background-color: $orange
+			color: $black
+
+	&__open-btn
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: rems(11.5) rems(12)
+		background: #282828
+		border-radius: 4px
+		height: rems(48)
+		width: 100%
+		@include fontSize(13,25)
+		color: $white
+		border: 1px solid #282828
+		
+		svg
+			flex-shrink: 0
+
+	&__time
+		font-weight: 500
+		@include fontSize(13,25)
+		color: $white
+		margin-right: rems(12)
+		z-index: 1
+		-moz-appearance: textfield
+		appearance: none
+		width: 100%
+		text-align: left
+		
+		&::-webkit-outer-spin-button
+		&::-webkit-inner-spin-button 
+			-webkit-appearance: none
+			
+		&:focus
+			outline: none
+			background: none
+
+	&__icon
+
+.trading-aside-sec
+	background: #282828
+	border-radius: 4px
+	padding: rems(12)
+	border: 1px solid transparent
+	transition: 0.3s
+	cursor: pointer
+
+	&.active
+		border: 1px solid $orange
+
+	&__header
+		display: flex
+		align-items: center
+		margin-bottom: rems(6)
+
+	&__title
+		color: $grey
+		font-weight: 500
+		@include fontSize(10,17)
+
+	&__wrap
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__val
+		font-weight: 400
+		@include fontSize(14,25)
+		color: $white
+		width: 100%
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button
+			-webkit-appearance: none
+			margin: 0
+
+		input[type=number]
+			-moz-appearance: textfield
+
+		&:focus
+			outline: none
+
+
+	&__icon
+		height: rems(18)
+		width: rems(18)
+
+	&__help
+		margin-left: rems(4)
+		height: rems(12)
+		width: rems(12)
+
+.trading-aside-amount
+	background: #282828
+	border-radius: 4px
+	&__content
+		padding: rems(20) rems(12) rems(12)
+
+	&__btn
+		padding: rems(4)
+		width: 100%
+		background: #383838
+		border-radius: 4px
+		font-weight: 400
+		@include fontSize(14,25)
+		color: $white
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		border: 1px solid transparent
+
+		&.active
+			border: 1px solid $orange
+
+
+.payout
+	padding: rems(12)
+	border: 1px solid #373737
+	border-radius: 4px
+	text-align: center
+
+	&__title
+		font-weight: 500
+		@include fontSize(11,19)
+		color: $white
+		margin: rems(1) 0
+
+	&__value
+		font-weight: 800
+		@include fontSize(24,43)
+		color: $white
+		margin: rems(1) 0
+
+	&__text
+		margin: rems(1) 0
+		font-weight: 500
+		@include fontSize(11,19)
+		color: $grey
+
+.control
+
+	&__up
+		background-color: #00AD64
+		background-size: cover
+		backdrop-filter: blur(1px)
+		background-position: left -35px
+		background-repeat: no-repeat
+		transition: 0.3s ease
+
+		.control__btn-icon
+			background: #009B5A
+			
+		&:hover
+			background: #056b40
+
+	&__btn
+		padding: rems(15)
+		border-radius: 4px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		width: 100%
+		font-weight: 700
+		@include fontSize(16,29)
+		color: $white
+
+		&:disabled
+			opacity: 0.5
+			cursor: auto
+
+	&__btn-icon
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		height: rems(42)
+		width: rems(42)
+		border-radius: 8px
+		border: 0.5px solid rgba(255, 255, 255, 0.3)
+
+	&__down
+		background-color: #FE3D31
+		background-size: cover
+		backdrop-filter: blur(1px)
+		background-position: right -40px
+		background-repeat: no-repeat
+		transition: 0.3s ease
+
+		.control__btn-icon
+			background-color: #E0372C
+			
+		&:hover
+			background-color: #c7281e
+			

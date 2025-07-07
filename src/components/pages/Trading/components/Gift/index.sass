@@ -1,0 +1,39 @@
+@import './src/styles/mixins'
+@import './src/styles/variables'
+@import './src/styles/functions'
+
+.gift-popup
+	padding: rems(62) rems(32) rems(32)
+	text-align: center
+	background: $grey-form
+	border: 3px solid #4E4E4E
+	border-radius: 12px
+	max-width: 387px
+	margin: 0 rems(12)
+
+	&__pic
+		display: block
+		margin-bottom: rems(8)
+
+	&__title
+		font-weight: 600
+		@include fontSize(32,52)
+		color: $white
+		margin-bottom: rems(8)
+
+	&__text
+		font-weight: 400
+		@include fontSize(14,25)
+		color: $white
+
+	&__btn
+		margin-top: rems(15)
+		width: 100%
+		font-weight: 600
+
+	&__link
+		margin-top: rems(15)
+		display: block
+		color: $orange
+		font-weight: 600
+		@include fontSize(14,25)

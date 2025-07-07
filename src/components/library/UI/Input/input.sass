@@ -1,0 +1,93 @@
+@import '../../../../styles/mixins'
+@import '../../../../styles/variables'
+@import '../../../../styles/functions'
+
+.bo-input
+
+	&--icon
+		.bo-input__input
+			padding-left: rems(52)
+
+
+	&__label-text
+		font-weight: 400
+		@include fontSize(16,25)
+		color: $white
+		margin-bottom: rems(4)
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__input
+		background-color: $dark-grey2
+		border-radius: 4px
+		padding: rems(11.5) rems(16)
+		font-weight: 500
+		@include fontSize(16,29)
+		width: 100%
+		color: $white
+		border: 2px solid $dark-grey2
+
+		&::placeholder
+			color: $placeholder
+
+		&:focus
+			outline: none
+
+		&.error
+			border: 2px solid $red!important
+
+		.form-control
+			font-weight: 500
+			@include fontSize(16,29)
+			width: 100%
+			color: $white
+
+			&:focus
+				outline: none
+
+			&::placeholder
+				color: $placeholder
+
+		&[type="number"]::-webkit-outer-spin-button,
+		&[type="number"]::-webkit-inner-spin-button
+			-webkit-appearance: none
+
+		&[type='number'],
+		&[type="number"]:hover,
+		&[type="number"]:focus
+			appearance: none
+			-moz-appearance: textfield
+
+	&__error
+		color: $red
+		@include fontSize(14,25)
+		font-weight: 500
+		margin-top: rems(4)
+
+	&__wrap
+		position: relative
+
+	&__icon
+		position: absolute
+		right: 16px
+		top: 50%
+		height: 20px
+		width: 20px
+		transform: translateY(-50%)
+		background-size: contain
+		background-repeat: no-repeat
+		background-position: center
+
+		&--left
+			right: unset
+			left: 16px
+
+		&--eye
+			background-image: url("../../../../assets/images/icons/preview-close2.svg")
+
+			&.open
+				background-image: url("../../../../assets/images/icons/preview-open.svg")
+
+		&--key
+			background-image: url("../../../../assets/images/icons/key.svg")

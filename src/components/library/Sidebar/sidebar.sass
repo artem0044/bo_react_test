@@ -1,0 +1,292 @@
+@import '../../../styles/mixins'
+@import '../../../styles/variables'
+@import '../../../styles/functions'
+
+.sidebar
+	z-index: 10
+	left: 0
+	bottom: 0
+	width: rems(80)
+	height: 100%
+	background-color: $black
+	display: none
+	flex-shrink: 0
+	position: sticky
+	top: 0
+	left: 0
+
+	@include media-breakpoint-up(md)
+		display: block
+
+	&__wrapper
+		height: 100%
+		
+		nav
+			height: 100%
+
+	&__full-btn
+		padding: rems(6) rems(10)
+		border-radius: 4px
+		background-color: $dark-grey
+		display: flex
+		align-items: center
+		justify-content: center
+		margin: 0 auto rems(15)
+
+	&__list
+		display: flex
+		flex-direction: column
+		height: 100%
+
+	&__item
+		position: relative
+
+	&__nav-link
+		display: flex
+		justify-content: center
+		flex-direction: column
+		text-align: center
+		padding: rems(10) rems(8) rems(8)
+		width: 100%
+
+		&:hover
+			.sidebar
+				&__nav-text
+					color: $white
+					
+				&__nav-icon
+					path
+						fill: $white
+			
+		
+		&.active
+			background-color: $dark-grey
+
+			.sidebar
+				&__nav-text
+					color: $white
+
+				&__nav-icon
+					path
+						fill: $white
+
+	&__nav-icon
+		display: block
+		height: rems(20)
+		width: rems(20)
+		margin: 0 auto rems(6)
+		
+		path
+			transition: 0.3s ease
+
+	&__nav-text
+		font-weight: 400
+		@include fontSize(10,18)
+		color: $grey
+		width: 100%
+		transition: 0.3s ease
+
+//mobile
+
+.mobile-sidebar
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background: rgba(38, 36, 22, 0.14)
+	backdrop-filter: blur(4px)
+	visibility: hidden
+	opacity: 0
+	transition: 0.3s ease
+	z-index: 100
+
+	@include media-breakpoint-up(md)
+		display: none
+
+	&.active
+		visibility: visible
+		opacity: 1
+
+		.mobile-sidebar__wrapper
+			transform: translateX(0)
+
+	&__wrapper
+		background-color: $black
+		padding: rems(80) 0 rems(30)
+		max-height: 100vh
+		overflow-y: auto
+		width: 100%
+		max-width: 250px
+		height: 100%
+		position: relative
+		transform: translateX(-100%)
+		transition: 0.3s ease
+
+	&__header
+		margin-bottom: rems(25)
+		padding: 0 rems(22)
+
+	&__name
+		font-weight: 600
+		@include fontSize(20,36)
+		color: $white
+
+	&__email
+		font-weight: 600
+		@include fontSize(14,25)
+		color: rgba($white,0.5)
+		word-break: break-word
+
+	&__info-list
+		margin-top: rems(20)
+
+	&__info-item
+		& + &
+			margin-top: rems(10)
+
+	&__list
+
+	&__item
+
+	&__nav-link
+		padding: rems(15) rems(22)
+		display: flex
+		align-items: center
+		width: 100%
+
+		&.active
+			background-color: $dark-grey
+
+			.mobile-sidebar
+				&__nav-text
+					color: $white
+
+				&__nav-icon
+					path
+						fill: $white
+
+	&__nav-icon
+		margin-right: rems(6)
+
+	&__nav-text
+		color: $grey
+		font-weight: 600
+		@include fontSize(16,29)
+
+	&__close
+		position: absolute
+		top: rems(30)
+		right:  rems(22)
+
+	&__logo
+		position: absolute
+		top: rems(30)
+		left: rems(22)
+
+		svg,img
+			height: auto
+			width: rems(120)
+
+			@include media-breakpoint-up(b680)
+				width: rems(172)
+		
+.desc-change-theme
+	position: absolute
+	top: 0
+	left: calc(100% + 10px)
+	width: max-content
+	visibility: hidden
+	opacity: 0
+	transition: 0.3s
+
+	&.active
+		visibility: visible
+		opacity: 1
+
+	&__bg
+		position: fixed
+		height: 100%
+		width: 100%
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+
+	&__content
+		background-color: $dark-grey
+		border-radius: 7px
+		box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5)
+		padding: rems(10)
+		position: relative
+		z-index: 1
+
+	&__title
+		font-weight: 500
+		@include fontSize(14,24)
+		color: $white
+		margin-bottom: rems(6)
+
+	&__btn
+		padding: rems(14)
+		background: #383838
+		border-radius: 4px
+		height: rems(67)
+		width: rems(67)
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+
+		&.active
+			background: $orange-active
+			border: 1px solid$orange
+
+
+	&__btn-icon
+		display: block
+		margin: 0 auto rems(6)
+		height: 19px
+		width: 21px
+
+		img
+			height: 100%
+			width: 100%
+			object-fit: contain
+
+	&__text
+		font-weight: 500
+		@include fontSize(8,14)
+		color: $white
+		text-align: center
+
+.change-theme
+	padding: rems(15) rems(22)
+
+
+	&__btn
+		padding: rems(14)
+		background: #383838
+		border-radius: 4px
+		width: 100%
+
+		&.active
+			background: $orange-active
+			border: 1px solid$orange
+
+	&__btn-icon
+		display: block
+		margin: 0 auto rems(6)
+		height: 19px
+		width: 21px
+
+		img
+			height: 100%
+			width: 100%
+			object-fit: contain
+
+	&__text
+		font-weight: 500
+		@include fontSize(8,14)
+		color: $white
+		text-align: center

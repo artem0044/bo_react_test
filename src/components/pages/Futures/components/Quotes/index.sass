@@ -1,0 +1,110 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+.futures-quote
+	border: 1px solid $line-main
+	background-color: $grey-form
+	display: flex
+	flex-direction: column
+	margin-bottom: rems(16)
+	
+	@include media-breakpoint-up(b680)
+		flex-direction: row
+
+	@include media-breakpoint-up(md)
+		border-radius: 14px
+		margin-bottom: 0
+		
+	&__current-pair
+		padding: rems(8) rems(12)
+		display: flex
+		align-items: center
+		border-bottom: 1px solid $line-main
+		text-align: left
+		
+		@include media-breakpoint-up(b680)
+			border-right: 1px solid $line-main
+			flex: 0 0 rems(162)
+			border-bottom: none
+			
+		@include media-breakpoint-up(lg)
+			padding: rems(15) rems(12)
+		
+		@include media-breakpoint-up(xl)
+			padding: rems(15) rems(18)	
+			flex: 0 0 rems(182)
+
+	&__current-pair-icon
+		flex-shrink: 0
+		height: rems(34)
+		width: rems(34)
+		object-fit: cover
+		margin-right: rems(12)
+
+	&__current-pair-info
+
+	&__current-pair-title
+		@include fontSize(16,19)
+		color: $white
+		font-weight: 600
+		margin-bottom: rems(3)
+
+	&__current-pair-text
+		@include fontSize(14,17)
+		font-weight: 400
+		color: $text-second
+
+	&__list
+		display: flex
+		flex-wrap: wrap
+		padding-right: rems(14)
+
+	&__item
+		display: flex
+		flex-direction: column
+		justify-content: center
+		padding: rems(8) 0 rems(8) rems(14)
+		
+		@include media-breakpoint-up(lg)
+			padding: rems(14) 0 rems(14) rems(20)
+		
+		@include media-breakpoint-up(xl)
+			padding: rems(14) 0 rems(14) rems(35)
+
+	&__value
+		font-weight: 600
+		color: $white
+		@include fontSize(12,15)
+
+		@include media-breakpoint-up(lg)
+			@include fontSize(14,17)
+
+		&--big
+			@include fontSize(12,15)
+			
+			@include media-breakpoint-up(lg)
+				@include fontSize(14,17)
+			
+			@include media-breakpoint-up(xl)
+				@include fontSize(16,19)
+
+		&--green
+			color: $green2
+			
+		&--red
+			color: $red2
+
+	&__value + &__text
+		margin-top: rems(6)
+
+	&__text + &__value
+		margin-top: rems(6)
+
+	&__text
+		@include fontSize(12,15)
+		font-weight: 400
+		color: $text-second
+		
+	&__current-pair-wrap
+		position: relative

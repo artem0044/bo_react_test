@@ -1,0 +1,53 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+.confirmWithdrawal-popup
+	.popup__content
+		width: 100%
+		height: 100%
+
+		@include media-breakpoint-up(b680)
+			height: fit-content
+			max-width: 433px
+			width: 100%
+
+.confirmWithdrawal
+	padding: rems(65) rems(16) rems(32)
+	background: $grey-form
+	width: 100%
+	height: 100%
+	display: flex
+	flex-direction: column
+
+	@include media-breakpoint-up(b680)
+		border-radius: 12px
+		border: 1px solid $grey
+		height: auto
+		padding: rems(85) rems(32) rems(50)
+
+	&__title
+		font-weight: 600
+		@include fontSize(20,32)
+		color: $white
+		margin-bottom: rems(5)
+
+	&__text
+		color: $white
+		font-weight: 400
+		@include fontSize(14,25)
+
+	&__inp-wrap
+		margin-top: rems(20)
+		flex: 1
+
+	&__wrap-btns
+		display: flex
+		gap: rems(15)
+		margin-top: rems(20)
+
+	&__btn
+		flex: 0 1 50%
+		
+	&__2fa-btn
+		margin-top: rems(20)

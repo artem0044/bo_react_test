@@ -1,0 +1,248 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+.authentication
+	&__howItWorks
+		margin-top: rems(24)
+
+	&__step
+		margin-top: rems(32)
+		@include media-breakpoint-up(lg)
+			margin-top: rems(70)
+
+.howItWorks
+	&__title
+		font-weight: 600
+		@include fontSize(16,26)
+		color: rgba($white,0.5)
+
+.howItWorks-card
+	padding: rems(15)
+	border: 2px solid $dark-grey2
+	border-radius: 10px
+	display: block
+
+	@include media-breakpoint-up(lg)
+		display: flex
+		align-items: center
+		padding: rems(25) rems(15)
+
+	&__icon
+		display: block
+		height: rems(55)
+		width: rems(55)
+		margin-right: rems(15)
+		flex-shrink: 0
+		margin-bottom: rems(8)
+
+		@include media-breakpoint-up(lg)
+			margin-bottom: 0
+			height: rems(65)
+			width: rems(65)
+
+		img
+			height: 100%
+			width: 100%
+
+	&__info
+
+	&__title
+		font-weight: 600
+		@include fontSize(16,29)
+		color: $white
+		margin-bottom: rems(5)
+
+	&__text
+		font-weight: 400
+		@include fontSize(14,21)
+		color: $white
+
+
+.authentication-step
+	@include media-breakpoint-up(b680)
+		padding: rems(15)
+	&__title
+		font-weight: 600
+		@include fontSize(16,29)
+		color: $white
+
+	&__text
+		font-weight: 500
+		@include fontSize(16,29)
+		color: rgba($white, 0.5)
+		margin-bottom: rems(30)
+
+	&__progress
+		display: flex
+		align-items: center
+
+	&__bar
+		background: $dark-grey2
+		border-radius: 4px
+		width: 100%
+		height: rems(5)
+
+	&__bar-active
+		background: $orange
+
+	&__inp-wrap
+		margin-top: rems(30)
+
+		@include media-breakpoint-up(b680)
+			display: flex
+			align-items: flex-start
+
+		.bo-input
+			width: 100%
+
+	&__btn
+		margin-top: rems(15)
+		flex-shrink: 0
+		width: 100%
+
+		@include media-breakpoint-up(b680)
+			margin-top: 0
+			width: auto
+			margin-left: rems(15)
+
+
+//google Authentication
+
+.g-authentication
+	&__sec
+		& + &
+			margin-top: rems(24)
+			@include media-breakpoint-up(md)
+				margin-top: rems(30)
+
+	&__btn
+		margin-top: rems(30)
+		width: 100%
+
+		@include media-breakpoint-up(md)
+			width: auto
+			margin-top: rems(35)
+
+
+.step-section
+	border-radius: 10px
+
+	@include media-breakpoint-up(b680)
+		border: 1px solid $grey
+		padding: rems(16)
+
+	@include media-breakpoint-up(md)
+		padding: rems(25)
+
+	&__header
+		display: flex
+		align-items: center
+		margin-bottom: rems(24)
+
+	&__step
+		height: rems(32)
+		width: rems(32)
+		border-radius: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+		color: $black
+		font-weight: 500
+		@include fontSize(14,25)
+		flex-shrink: 0
+		margin-right: rems(16)
+		background-color: $orange
+
+	&__title
+		font-weight: 600
+		@include fontSize(16,26)
+		color: $orange
+
+	&__text
+		font-weight: 500
+		@include fontSize(14,23)
+		color: $white
+		margin-bottom: rems(24)
+
+	&__links
+		display: flex
+
+	&__link
+		& + &
+			margin-left: rems(24)
+
+	&__qr
+		@include media-breakpoint-up(lg)
+			display: flex
+			align-items: center
+
+	&__qr-pic
+		height: rems(150)
+		width: rems(150)
+		display: block
+		margin-bottom: rems(24)
+
+		@include media-breakpoint-up(lg)
+			margin-right: rems(24)
+			margin-bottom: rems(0)
+
+
+		img
+			height: 100%
+			width: 100%
+
+	&__qr-wrap
+
+	&__qr-copy
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: rems(15.5) rems(12)
+		background: #1C1C1C
+		border-radius: 4px
+		margin-bottom: rems(15)
+		max-width: rems(383)
+
+		@include media-breakpoint-up(b680)
+			padding: rems(15.5) rems(16)
+
+	&__qr-text
+		color: #335BE9
+		font-weight: 600
+		@include fontSize(12,18)
+		text-overflow: ellipsis
+		overflow: hidden
+
+		@include media-breakpoint-up(b680)
+			@include fontSize(14,25)
+
+	&__qr-btn
+		margin-left: rems(16)
+		flex-shrink: 0
+
+	&__qr-warning
+		display: flex
+		align-items: center
+		padding: rems(10)
+		background: rgba(253, 50, 50, 0.1)
+		border-radius: 8px
+		max-width: rems(383)
+
+	&__qr-w-icon
+		flex-shrink: 0
+		margin-right: rems(10)
+
+	&__qr-w-text
+		color: #FD3232
+		font-weight: 400
+		@include fontSize(12,22)
+
+	&__inp-wrap
+		max-width: rems(413)
+
+		.bo-input__label-text
+			color: $orange
+
+.blur
+	filter: blur(4px)

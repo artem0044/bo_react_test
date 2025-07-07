@@ -1,0 +1,41 @@
+@import '../../../../../styles/mixins'
+@import '../../../../../styles/variables'
+@import '../../../../../styles/functions'
+
+
+.bonusAlert
+	background-color: #4D3D22
+	border: 1px solid $orange
+	padding: rems(6) rems(12)
+	border-radius: 4px
+
+	@include media-breakpoint-up(md)
+		padding: rems(3) rems(16)
+		height: rems(42)
+
+	&__wrapper
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__pic
+		margin-right: rems(15)
+		@include media-breakpoint-up(md)
+			margin-right: rems(8)
+
+	&__title
+		font-weight: 600
+		@include fontSize(11,19)
+		color: $orange
+
+	&__text
+		font-weight: 500
+		@include fontSize(10,17)
+		color: $orange
+
+	&__close
+		margin-left: rems(20)
+		vertical-align: middle
+
+		@include media-breakpoint-up(md)
+			margin-left: rems(8)
